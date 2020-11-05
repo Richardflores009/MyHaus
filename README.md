@@ -29,7 +29,7 @@ Start from the terminal using npm start command.
 This Repository is covered under the following license: [ISC] 
 
 ## Contributors:
-Chris Walston, Richard Flores, Tara Brichetto, Joseph DeFelice, Stephen Pena
+Tara Brichetto, Joseph DeFelice, Richard Flores, Stephen Pena, Chris Walston 
 
 
 

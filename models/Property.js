@@ -24,7 +24,7 @@ Property.init({
         }
     },
     pet: {
-        type: Sequelize.BOOLEAN,
+        type: DataTypes.BOOLEAN,
         defaultValue: false
     },
     maintenance: {

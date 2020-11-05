@@ -6,7 +6,7 @@ const signupFormHandler = async function(event) {
     const llfirstNameEl = document.querySelector("#llfirstname-input-signup");
     const lllastNameEl = document.querySelector("#lllastname-input-signup");
     
-  
+if (llemailEl.value && llpasswordEl.value && llfirstNameEl.value && lllastNameEl.value){
     fetch("/api/user", {
       method: "post",
       body: JSON.stringify({
@@ -23,6 +23,7 @@ const signupFormHandler = async function(event) {
       })
       .catch(err => console.log(err));
   };
+}
   
   document
     .querySelector("#signup-form")

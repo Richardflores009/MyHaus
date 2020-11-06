@@ -19,7 +19,15 @@ Property.init({
     pet: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    }
+    },
+    
+      landlord_id: {
+          type: DataTypes.INTEGER,
+          references: {
+              model: 'landlord',
+              key: 'id'
+          }
+      }
 },
 {
     sequelize,

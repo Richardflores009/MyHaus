@@ -31,6 +31,13 @@ Tenant.init({
         validate: {
             len: [4]
         }
+    },
+    property_id: {
+        type: DataTypes.STRING,
+        references: {
+            model: 'property',
+            key: 'id'
+        }
     }
 }, 
 {

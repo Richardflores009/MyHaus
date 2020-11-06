@@ -3,10 +3,7 @@ const { Landlord, Comment, Tenant, Property } = require('../../models');
 
 router.get('/', (req, res) => {
     Tenant.findAll({
-      attributes: {exclude: ['password']},
-      include: [
-       
-      ]
+      attributes: {exclude: ['password']}
     })
     .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => res.status(404).json(err))
@@ -15,13 +12,16 @@ router.get('/', (req, res) => {
   });
   
   router.get('/:id', (req, res) => {
-    // find one category by its `id` value
-    // be sure to include its associated Products
     Tenant.findOne({
+      attributes: {exclude: ['password']},
       where: {
         id: req.params.id
       },
       include: [
+        {
+          model: Property,
+          attributes: ['address']
+        }
       ]
     })
     .then(dbCategoryData => {

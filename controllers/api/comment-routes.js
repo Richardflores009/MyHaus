@@ -21,13 +21,9 @@ router.get('/', (req, res) => {
     })
     .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => res.status(404).json(err))
-    // find all categories
-    // be sure to include its associated Products
   });
   
   router.get('/:id', (req, res) => {
-    // find one category by its `id` value
-    // be sure to include its associated Products
     Comment.findOne({
       where: {
         id: req.params.id
@@ -53,7 +49,6 @@ router.get('/', (req, res) => {
   });
   
   router.post('/', (req, res) => {
-    // create a new landlord
     Comment.create({
       body: req.body.body,
     })

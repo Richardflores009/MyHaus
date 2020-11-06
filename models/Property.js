@@ -9,20 +9,6 @@ Property.init({
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
-    landlord_id: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'landlord',
-            key: 'id'
-        }
-    },
-    tenant_id: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'tenant',
-            key: 'id'
-        }
-    },
     pet: {
         type: DataTypes.BOOLEAN,
         defaultValue: false

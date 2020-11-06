@@ -1,9 +1,6 @@
 const router = require('express').Router();
 const { Landlord, Comment, Tenant, Property } = require('../../models');
 
-const router = require('express').Router();
-const { Landlord, Comment, Tenant, Property } = require('../../models');
-
 router.get('/', (req, res) => {
     Property.findAll({
       attributes: 

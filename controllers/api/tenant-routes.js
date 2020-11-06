@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
+          attributes: ['id', 'address', 'pet', 'stock', 'landlord_id']
         }
       ]
     })
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
+          attributes: ['id', 'address', 'pet', 'stock', 'landlord_id']
         },
         {
             model: Comment,

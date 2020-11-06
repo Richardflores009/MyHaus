@@ -4,42 +4,37 @@ const Property = require('./Property');
 const Comment = require('./Comment');
 
 Property.belongsTo(Landlord, {
-    foreignKey: 'landlord_id',
+    foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 });
 
 Property.belongsTo(Landlord, {
-    foreignKey: 'landlord_id',
+    foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 })
 
-Property.hasMany(Tenant, {
-    foreignKey: 'tenant_id',
-    onDelete: 'CASCADE'
-});
-
 Landlord.hasMany(Property, {
-    foreignKey: 'landlord_id',
+    foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 });
 
 Landlord.hasMany(Comment, {
-    foreignKey: 'landlord_id',
+    foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 });
 
 Tenant.hasMany(Comment, {
-    foreignKey: 'tenant_id',
+    foreignKey: 'tenantId',
     onDelete: 'CASCADE'
 })
 
 Comment.belongsTo(Landlord, {
-    foreignKey: 'landlord_id',
+    foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Tenant, {
-    foreignKey: 'tenant_id',
+    foreignKey: 'tenantId',
     onDelete: 'CASCADE'
 });
 

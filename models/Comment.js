@@ -4,13 +4,6 @@ const sequelize = require('../config/config');
 class Comment extends Model {}
 
 Comment.init({
-    tenant: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'tenant',
-            key: 'id'
-        }
-    },
     body: {
         type: DataTypes.STRING,
         allowNull: false

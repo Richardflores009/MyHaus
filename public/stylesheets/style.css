@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+html, body {
+    height: 100%;
+}
+
+/*login/sign up page*/
+.signin-background {
+    background-image: url('login-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 55vw;
+    width: 100vw;
+}
+.form-title {
+    text-align: center;
+    font-size: 40px;
+    color: black;
+}
+.form-wrapper {
+    position: relative;
+    text-align: center;
+    height: 45vw;
+    width: 50%;
+    margin: 0 auto;
+    padding: 15vw 10px;
+}
+.form-background {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px black;
+}
+.form-wrapper input {
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    border: none;
+    border-bottom: thin solid #7D9694;
+}
+.form-wrapper button {
+    padding: 5px 15px;
+    width: 25%;
+    background: #7D9694;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.form-wrapper p {
+    margin: 10px 0;
+    padding: 5px;
+}
+.radio-wrapper label, .radio-wrapper input {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0;
+    width: 5%;
+}
+.small-text {
+    font-size: 15px;
+}
+footer {
+    background: white;
+    padding: 2.5px 5px;
+    color: black;
+    font-size: 16px;
+}
+
+
+/*dashboard page*/
+.nav-container {
+    color: black;
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+}
+.nav-container a {
+    padding: 15px;
+    text-decoration: none;
+    width: 90%;
+    font-size: 20px;
+    color: black;
+    display: block;
+}
+.nav-link:hover {
+    background: #7D9694;
+    transition: 0.3s;
+}
+.nav-title {
+    padding: 15px; 
+}
+.lower-nav a {
+    width: 90%;
+    bottom: 0;
+}
+.lower-nav a:hover {
+    background: #7D9694;
+    color: white;
+    transition: 0.3s;
+}
+.main-container {
+    background-image: url('dashboard-bg.png');
+    background-repeat: repeat;
+    height: 60vw;
+}
+.container-fluid {
+    display:table;
+    width: 100%;
+    margin-top: -50px;
+    padding: 50px 0 0 0; /*set left/right padding according to needs*/
+    box-sizing: border-box;
+    background-repeat: red;
+}
+.dashboard-title {
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 60px;
+    background: #7D9694;
+    text-transform: capitalize;
+    position: fixed;
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 9999;
+}
+.main-form-wrapper {
+    padding: 10px;
+    margin: 10px;
+    background: white;
+    width: 50%;
+    margin: 10px auto 25px auto;
+    border-radius: 10px;
+}
+.main-form {
+    width: 100%;
+}
+.main-form input {
+    width: 100%;
+    border: none;
+    border-bottom: thin solid #7D9694;
+}
+.left-form {
+    float: left;
+    width: 49%;
+}
+.right-form {
+    float: right;
+    width: 49%;
+}
+.form-button {
+    padding: 5px 15px;
+    margin: 10px 0;
+    width: 100%;
+    background: #7D9694;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.form-button:focus {
+    outline: none;
+}
+
+/*card styles*/
+.card {
+    width: 90%;
+    margin: 25px 0;
+}
+.card h5 {
+    text-align: center;
+}
+.card img {
+    width: 100%;
+}
+.list-wrapper-left {
+    float: left;
+    list-style: none;
+}
+.list-wrapper-right {
+    float: right;
+    text-align: right;
+    list-style: none;
+}
+.list-wrapper-left li, .list-wrapper-right li {
+    padding: 0;
+    margin: 0;
+}
+.card a {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: #7D9694;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+/*tenant dashboard page*/
+form textarea {
+    width: 100%;
+}
+.modal-button-wrapper {
+    bottom: 0;
+    position: absolute;
+    width: 1200px;
+    margin: 0 auto;
+    
+}
+.modal-button-wrapper button {
+    box-sizing: content-box;
+    display: inline;
+    background: #7D9694;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+}
+.update-button {
+    width: 25%;
+    float: right;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px 0;
+    background: #7D9694;
+}
+.update-wrapper {
+    width: 100%;
+    margin: 25px 10px 0 0;
+}

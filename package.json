@@ -1,7 +1,7 @@
 {
   "name": "myhause",
   "version": "1.0.0",
-  "description": "",
+  "description": "badges(); ## Table of Contents * [Description](#description) * [Installation](#installation) * [Usage](#usage) * [License](#license) * [Contributors](#contributors) * [Tests](#tests) * [Questions](#questions)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "express-session-sequelize": "^2.3.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },

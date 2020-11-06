@@ -8,8 +8,8 @@ Property.belongsTo(Landlord, {
     onDelete: 'CASCADE'
 });
 
-Tenant.belongsTo(Property, {
-    foreignKey: 'property_id',
+Property.belongsTo(Tenant, {
+    foreignKey: 'tenant_id',
     onDelete: 'CASCADE'
 })
 
@@ -18,11 +18,25 @@ Landlord.hasMany(Property, {
     onDelete: 'CASCADE'
 })
 
-Property.hasMany(Tenant, {
-    foreignKey: 'property_id',
+Comment.belongsTo(Tenant, {
+    foreignKey: 'tenant_id',
     onDelete: 'CASCADE'
 })
 
+Comment.belongsTo(Landlord, {
+    foreignKey: 'landlord_id',
+    onDelete: 'CASCADE'
+})
+
+Landlord.hasMany(Comment, {
+    foreignKey: 'landlord_id',
+    onDelete: 'CASCADE'
+})
+
+Tenant.hasMany(Comment, {
+    foreignKey: 'tenant_id',
+    onDelete: 'CASCADE'
+})
 
 module.exports = {
     Landlord,

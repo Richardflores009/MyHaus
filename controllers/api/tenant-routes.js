@@ -16,13 +16,7 @@ router.get('/', (req, res) => {
       attributes: {exclude: ['password']},
       where: {
         id: req.params.id
-      },
-      include: [
-        {
-          model: Property,
-          attributes: ['address']
-        }
-      ]
+      }
     })
     .then(dbCategoryData => {
       if(!dbCategoryData){
@@ -44,7 +38,6 @@ router.get('/', (req, res) => {
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      comment_id: req.body.comment_id,
       property_id: req.body.property_id
     })
     .then(dbCategoryData => {

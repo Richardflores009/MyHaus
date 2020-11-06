@@ -20,7 +20,13 @@ Property.init({
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    
+    tenant_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'tenant',
+            key: 'id'
+        }
+    },
       landlord_id: {
           type: DataTypes.INTEGER,
           references: {

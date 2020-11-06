@@ -31,8 +31,12 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Landlord,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
-        }
+          attributes: ['id', 'first_name', 'last_name', 'email']
+        },
+        {
+          model: Tenant,
+          attributes: ['id', 'first_name', 'last_name', 'email']
+      }
       ]
     })
     .then(dbCategoryData => {
@@ -51,6 +55,8 @@ router.get('/', (req, res) => {
   router.post('/', (req, res) => {
     Comment.create({
       body: req.body.body,
+      landlord_id: req.body.landlord_id,
+      tenant_id: req.body.tenant_id
     })
     .then(dbCategoryData => {
       if (!dbCategoryData) {

@@ -33,20 +33,6 @@ Landlord.init(
             len: [4]
         }
     },
-    comment_id: {
-        type: DataTypes.STRING,
-        reference: {
-            model: 'comment',
-            key: 'id'
-        }
-    },
-    property_id: {
-        type: DataTypes.STRING,
-        reference: {
-            model: 'property',
-            key: 'id'
-        }
-    }
 
 }, 
 {

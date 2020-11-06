@@ -9,31 +9,31 @@ Property.init({
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
-    landlord_id: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'landlord',
-            key: 'id'
-        }
-    },
-    tenant_id: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'tenant',
-            key: 'id'
-        }
-    },
-    pet: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-    },
+    address: DataTypes.STRING,
+    description: DataTypes.STRING,
     maintenance: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
 
     },
-    address: DataTypes.STRING,
-    description: DataTypes.STRING,
+    pet: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    tenant_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'tenant',
+            key: 'id'
+        }
+    },
+      landlord_id: {
+          type: DataTypes.INTEGER,
+          references: {
+              model: 'landlord',
+              key: 'id'
+          }
+      }
 },
 {
     sequelize,

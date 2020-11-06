@@ -10,23 +10,13 @@ router.get('/', (req, res) => {
         'maintenance',
         'address',
         'description',
-      ],
-      include: [
-        {
-          model: Landlord,
-          attributes: ['id', 'first_name', 'last_name', 'email']
-        },
-        {
-            model: Tenant,
-            attributes: ['id', 'first_name', 'last_name', 'email']
-        }
       ]
     })
     .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => res.status(404).json(err))
     // find all categories
     // be sure to include its associated Products
-  });
+});
   
   router.get('/:id', (req, res) => {
     // find one category by its `id` value
@@ -36,10 +26,6 @@ router.get('/', (req, res) => {
         id: req.params.id
       },
       include: [
-        {
-          model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
-        }
       ]
     })
     .then(dbCategoryData => {

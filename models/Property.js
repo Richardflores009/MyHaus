@@ -9,17 +9,17 @@ Property.init({
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
-    pet: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    },
+    address: DataTypes.STRING,
+    description: DataTypes.STRING,
     maintenance: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
 
     },
-    address: DataTypes.STRING,
-    description: DataTypes.STRING,
+    pet: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    }
 },
 {
     sequelize,

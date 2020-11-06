@@ -5,10 +5,7 @@ router.get('/', (req, res) => {
     Tenant.findAll({
       attributes: {exclude: ['password']},
       include: [
-        {
-          model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'landlord_id']
-        }
+       
       ]
     })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -25,14 +22,6 @@ router.get('/', (req, res) => {
         id: req.params.id
       },
       include: [
-        {
-          model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'landlord_id']
-        },
-        {
-            model: Comment,
-            attributes: ['id', 'body']
-        }
       ]
     })
     .then(dbCategoryData => {

@@ -8,15 +8,13 @@ Property.belongsTo(Landlord, {
     onDelete: 'CASCADE'
 });
 
-Property.belongsTo(Landlord, {
-    foreignKey: 'landlordId',
-    onDelete: 'CASCADE'
-})
 
 Landlord.hasMany(Property, {
     foreignKey: 'landlordId',
     onDelete: 'CASCADE'
 });
+
+
 
 Landlord.hasMany(Comment, {
     foreignKey: 'landlordId',

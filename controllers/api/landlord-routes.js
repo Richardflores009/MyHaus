@@ -11,14 +11,8 @@ router.get('/', (req, res) => {
         'email',
       ],
       include: [
-        {
-          model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
-        },
-        {
-            model: Comment,
-            attributes: ['id', 'body']
-        }
+        Property
+      
       ]
     })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -35,10 +29,7 @@ router.get('/', (req, res) => {
         id: req.params.id
       },
       include: [
-        {
-          model: Property,
-          attributes: ['id', 'address', 'pet', 'stock', 'tenant_id', 'landlord_id']
-        }
+       
       ]
     })
     .then(dbCategoryData => {

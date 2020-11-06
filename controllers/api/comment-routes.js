@@ -56,7 +56,8 @@ router.get('/', (req, res) => {
     Comment.create({
       body: req.body.body,
       landlord_id: req.body.landlord_id,
-      tenant_id: req.body.tenant_id
+      tenant_id: req.body.tenant_id,
+      post_id: req.body.post_id
     })
     .then(dbCategoryData => {
       if (!dbCategoryData) {

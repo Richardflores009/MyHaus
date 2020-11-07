@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const { Landlord, Comment, Tenant, Property } = require('../../models');
 
+// GET ALL TENANTS
 router.get('/', (req, res) => {
     Tenant.findAll({
       attributes: {exclude: ['password']}
     })
-    .then(dbCategoryData => res.json(dbCategoryData))
+    .then(dbTenantData => res.json(dbTenantData))
     .catch(err => res.status(404).json(err))
-    // find all categories
-    // be sure to include its associated Products
   });
   
   router.get('/:id', (req, res) => {
@@ -18,12 +17,12 @@ router.get('/', (req, res) => {
         id: req.params.id
       }
     })
-    .then(dbCategoryData => {
-      if(!dbCategoryData){
-        res.status(404).json({ message: 'Think before you type no categories here...'});
+    .then(dbTenantData => {
+      if(!dbTenantData){
+        res.status(404).json({ message: 'No tenant found!'});
       return;
       }
-      res.json(dbCategoryData)
+      res.json(dbTenantData)
     })
     .catch(err => {
       console.log(err)
@@ -31,8 +30,8 @@ router.get('/', (req, res) => {
     })
   });
   
+  // CREATE NEW TENANT
   router.post('/', (req, res) => {
-    // create a new landlord
     Tenant.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -40,12 +39,17 @@ router.get('/', (req, res) => {
       password: req.body.password,
       property_id: req.body.property_id
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
+    .then(dbTenantData => {
+      if (!dbTenantData) {
         res.status(404).json({ message: 'follow the category entry format, dummy'});
         return;
       }
-      res.json(dbCategoryData);
+      req.session.save(() => {
+        req.session.email =dbTenant.email;
+        req.session.loggedIn = true;
+
+        res.json(dbTenantData);
+      });
     })
     .catch(err => {
       console.log(err)
@@ -53,38 +57,80 @@ router.get('/', (req, res) => {
     })
   });
   
+  // EDIT TENANT DATA
   router.put('/:id', (req, res) => {
     Tenant.update(req.body, {
       where: {
         id: req.params.id
       }
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'nope try again'});
+    .then(dbTenantData => {
+      if (!dbTenantData) {
+        res.status(404).json({ message: 'Tenant not found'});
         return;
       }
-      res.json(dbCategoryData)
+      res.json(dbTenantData)
     })
     .catch(err => {
       console.log(err)
       res.status(500).json(err)
     })
   });
+
+  // TENANT LOGIN
+  router.post('/login', (req, res) => {
+    // expects {email, password}
+    Tenant.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then(dbTenantData => {
+      if (!dbTenantData) {
+        res.status(400).json({ message: 'No tenant found with that e-mail address!'})
+        return;
+      }
+
+      const validPassword = dbTenantData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect Password'});
+        return;
+      }
+      req.session.save(() => {
+        req.session.email = dbTenantData.email;
+        req.session.loggedIn = true;
+
+        res.json({dbTenantData, message: 'You are now logged in!'});
+      });
+    });
+  });
+
+  // TENANT LOGOUT
+  router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+  });
+ 
   
+  // DELETE TENANT
   router.delete('/:id', (req, res) => {
-    // delete a category by its `id` value
     Tenant.destroy({
       where: {
         id: req.params.id
       }
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'you cant delete something that doesnt exist...'});
+    .then(dbTenantData => {
+      if (!dbTenantData) {
+        res.status(404).json({ message: 'Tenant not found!'});
         return;
       }
-      res.json(dbCategoryData)
+      res.json(dbTenantData)
     })
     .catch(err => {
       console.log(err)

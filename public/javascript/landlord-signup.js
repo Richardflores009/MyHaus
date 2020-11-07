@@ -7,7 +7,7 @@ const signupFormHandler = async function(event) {
     const lllastNameEl = document.querySelector("#lllastname-input-signup");
     
 if (llemailEl.value && llpasswordEl.value && llfirstNameEl.value && lllastNameEl.value){
-    fetch("/api/user", {
+    fetch("/api/landlord", {
       method: "post",
       body: JSON.stringify({
         llemail: llemailEl.value,
@@ -26,5 +26,5 @@ if (llemailEl.value && llpasswordEl.value && llfirstNameEl.value && lllastNameEl
 }
   
   document
-    .querySelector("#signup-form")
+    .querySelector(".form-wrapper")
     .addEventListener("submit", signupFormHandler);

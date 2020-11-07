@@ -1,5 +1,5 @@
 function logout() {
-  fetch("/api/user/logout", {
+  fetch("/api/landlord-routes/logout", {
     method: "post",
     headers: { "Content-Type": "application/json" }
   })

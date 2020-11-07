@@ -10,6 +10,16 @@ router.get('/', (req, res) => {
         'maintenance',
         'address',
         'description',
+      ],
+      include: [
+        {
+          model: Tenant,
+          attributes: ['id','first_name','last_name', 'email']
+        },
+        {
+          model: Landlord,
+          attributes: ['id','first_name','last_name', 'email']
+        }
       ]
     })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -26,6 +36,10 @@ router.get('/', (req, res) => {
         id: req.params.id
       },
       include: [
+        {
+          model: Tenant,
+          attributes: ['id','first_name','last_name', 'email']
+        }
       ]
     })
     .then(dbCategoryData => {
@@ -47,7 +61,10 @@ router.get('/', (req, res) => {
         address: req.body.address,
         description: req.body.description,
         maintenance: req.body.maintenance,
-        pet: req.body.pet
+        pet: req.body.pet,
+        property_id: req.body.property_id,
+        landlord_id: req.body.landlord_id,
+        tenant_id: req.body.tenant_id
     })
     .then(dbCategoryData => {
       if (!dbCategoryData) {

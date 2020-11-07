@@ -6,9 +6,7 @@ async function editTenantHandler(event) {
     const propertyId = document.querySelector('').value;
     const tenantName = document.querySelector('').value;
     
-
-    // NOTE: Will need to add Promise.all
-    // Update on Landlord Dashboard
+    // Update Info in Database
     await fetch(``, {
         method: 'PUT',
         body: JSON.stringify({
@@ -18,14 +16,6 @@ async function editTenantHandler(event) {
             'Content-Type': 'application/json'
         }
     });
-    // Update on Tenant Dashboard
-    await fetch(``, {
-        method: 'PUT',
-        body: JSON.stringify({
-            tenantName
-        })
-    })
-    document.location.replace('/dashboard');
 };
 
 // Submit Button

@@ -1,21 +1,23 @@
-const { Sequelize, Model, DataTypes, STRING } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
-class Comment extends Model {}
+// create our Post model
+class Post extends Model {}
 
-Comment.init({
-    id: {
+// create fields/columns for Post model
+Post.init(
+    {
+      id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
-    },
-    body: {
+      },
+      title: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-
-    tenant_id: {
+      },
+      tenant_id: {
         type: DataTypes.INTEGER,
         references: {
             model: 'tenant',
@@ -28,23 +30,14 @@ Comment.init({
             model: 'landlord',
             key: 'id'
         }
-    },
-    post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'post',
-            key: 'id'
-        }
     }
-    
-}, 
-{
-    sequelize,
-    timestamps: false,
-    freezeTableName:true,
-    underscored: true,
-    modelName: 'comment'
-}
-);
+    },
+    {
+      sequelize,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'post'
+    }
+  );
 
-module.exports = Comment;
+  module.exports = Post;

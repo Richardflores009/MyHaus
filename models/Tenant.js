@@ -31,7 +31,7 @@ Tenant.init({
         validate: {
             len: [4]
         }
-    }
+    },
 }, 
 {
     sequelize,

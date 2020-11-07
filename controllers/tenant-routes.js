@@ -9,7 +9,7 @@ router.get("/login", (req, res) => {
     //   return;
     // }
   
-    res.render("landlord-login");
+    res.render("tenant-login");
   });
   
   router.get("/signup", (req, res) => {
@@ -18,8 +18,7 @@ router.get("/login", (req, res) => {
     //   return;
     // }
   
-    res.render("landlord-signup");
+    res.render("tenant-signup");
   });
   
   module.exports = router;
-  

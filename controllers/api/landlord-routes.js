@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Landlord, Comment, Tenant, Property } = require('../../models');
 
+// GET ALL LANDLORDS
 router.get('/', (req, res) => {
     Landlord.findAll({
       attributes: 
@@ -11,33 +12,43 @@ router.get('/', (req, res) => {
         'email',
       ],
       include: [
-        Property
-      
+        {
+        model: Property,
+        attributes: ['id', 'pet', 'maintenance', 'address', 'description']
+        },
+        {
+        model: Tenant,
+        attributes: ["first_name", "last_name", "email"]
+        }
       ]
     })
-    .then(dbCategoryData => res.json(dbCategoryData))
+    .then(dbLandlordData => res.json(dbLandlordData))
     .catch(err => res.status(404).json(err))
-    // find all categories
-    // be sure to include its associated Products
   });
   
+  // GET SPECIFIC LANDLORD
   router.get('/:id', (req, res) => {
-    // find one category by its `id` value
-    // be sure to include its associated Products
     Landlord.findOne({
       where: {
         id: req.params.id
       },
       include: [
-       
+        {
+        model: Property,
+        attributes: ['id', 'pet', 'maintenance', 'address', 'description']
+        },
+        {
+        model: Tenant,
+        attributes: ["first_name", "last_name", "email"]
+        }
       ]
     })
-    .then(dbCategoryData => {
-      if(!dbCategoryData){
-        res.status(404).json({ message: 'Think before you type no categories here...'});
+    .then(dbLandlordData => {
+      if(!dbLandlordData){
+        res.status(404).json({ message: 'No landlord found!'});
       return;
       }
-      res.json(dbCategoryData)
+      res.json(dbLandlordData)
     })
     .catch(err => {
       console.log(err)
@@ -45,8 +56,8 @@ router.get('/', (req, res) => {
     })
   });
   
+  // CREATE A NEW LANDLORD
   router.post('/', (req, res) => {
-    // create a new landlord
     Landlord.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -55,12 +66,12 @@ router.get('/', (req, res) => {
       comment_id: req.body.comment_id,
       property_id: req.body.property_id
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'follow the category entry format, dummy'});
+    .then(dbLandlordData => {
+      if (!dbLandlordData) {
+        res.status(404).json({ message: 'Please enter all fields!'});
         return;
       }
-      res.json(dbCategoryData);
+      res.json(dbLandlordData);
     })
     .catch(err => {
       console.log(err)
@@ -68,18 +79,19 @@ router.get('/', (req, res) => {
     })
   });
   
+  // EDIT LANDLORD DATA
   router.put('/:id', (req, res) => {
     Landlord.update(req.body, {
       where: {
         id: req.params.id
       }
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'nope try again'});
+    .then(dbLandlordData => {
+      if (!dbLandlordData) {
+        res.status(404).json({ message: 'Error, please try again.'});
         return;
       }
-      res.json(dbCategoryData)
+      res.json(dbLandlordData)
     })
     .catch(err => {
       console.log(err)
@@ -87,6 +99,47 @@ router.get('/', (req, res) => {
     })
   });
   
+  // LANDLORD LOGIN 
+  router.post('/login', (req, res) => {
+    // expects {email, password}
+    Landlord.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then(dbLandlordData => {
+      if (!dbLandlordData) {
+        res.status(400).json({ message: 'No landlord found with that e-mail address!'})
+        return;
+      }
+
+      const validPassword = dbLandlordData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect Password'});
+        return;
+      }
+      req.session.save(() => {
+        req.session.email = dbLandlordData.email;
+        req.session.loggedIn = true;
+
+        res.json({dbLandlordData, message: 'You are now logged in!'});
+      });
+    });
+  });
+
+   // LANDLORD LOGOUT
+   router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+  });
+
+  // DELETE LANDLORD
   router.delete('/:id', (req, res) => {
     // delete a category by its `id` value
     Landlord.destroy({
@@ -94,9 +147,9 @@ router.get('/', (req, res) => {
         id: req.params.id
       }
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'you cant delete something that doesnt exist...'});
+    .then(dbLandlordData => {
+      if (!dbLandlordData) {
+        res.status(404).json({ message: 'Landlord not found!'});
         return;
       }
       res.json(dbCategoryData)

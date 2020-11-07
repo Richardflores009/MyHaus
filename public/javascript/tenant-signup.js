@@ -21,7 +21,7 @@ const signupFormHandler = async function (event) {
   //      }
   if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
     if (tenantPetyes.checked || tenantPetno.checked) {
-      fetch("/api/user", {
+      fetch("/api/tenant", {
           method: "post",
           body: JSON.stringify({
             email: emailEl.value,
@@ -54,5 +54,5 @@ const tenantpetcheckboxno = () => {
 
 
 document
-  .querySelector("#signup-form")
+  .querySelector(".form-wrapper")
   .addEventListener("submit", signupFormHandler);

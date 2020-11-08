@@ -4,6 +4,7 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 // get single post
 router.get('/', (req, res) => {
+  console.log("tenantroutepageid",req.session.tenant_id)
   Property.findAll({
     where: {
       // use the ID from the session
@@ -58,4 +59,16 @@ router.get("/login", (req, res) => {
     res.render("tenant-signup");
   });
   
+// TENANT LOGOUT
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
   module.exports = router;

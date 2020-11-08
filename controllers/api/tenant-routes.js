@@ -77,6 +77,7 @@ router.get('/:id', (req, res) => {
 
   // TENANT LOGIN
   router.post('/login', (req, res) => {
+    
     // expects {email, password}
     Tenant.findOne({
       where: {
@@ -87,21 +88,18 @@ router.get('/:id', (req, res) => {
         res.status(400).json({ message: 'No tenant found with that e-mail address!'})
         return;
       }
-
-      const validPassword = dbTenantData.checkPassword(req.body.password);
-
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect Password'});
-        return;
-      }
+      
+     
+      
       req.session.save(() => {
         req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;
         req.session.loggedIn = true;
-
-        res.json({user: dbTenantData, message: 'You are now logged in!'});
+    
+        res.json({ user: dbTenantData, message: 'You are now logged in!' });
       });
-    });
+    })
+    
   });
 
   // TENANT LOGOUT

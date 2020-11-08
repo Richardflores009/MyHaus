@@ -38,7 +38,7 @@ const signupFormHandler = async function (event) {
         .then(async function() {
           pet = tenantPetno.checked
           tenant_id = 1
-          await fetch(`/api/property/edit/6d68ca95-2fe0-4836-abe3-d50a967fdf8c`, {
+          await fetch(`/api/property/edit/${invitationEl.value}`, {
             method: "put",
             body: JSON.stringify({
               tenant_id,

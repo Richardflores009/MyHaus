@@ -99,6 +99,7 @@ router.get('/', (req, res) => {
   
   // LANDLORD LOGIN 
   router.post('/login', (req, res) => {
+    console.log('hellooooooo??')
     // expects {email, password}
     Landlord.findOne({
       where: {
@@ -110,10 +111,17 @@ router.get('/', (req, res) => {
         return;
       }
 
+      const validPassword = dbLandlordData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
       console.log('hellooooooo??')
       console.log('welcome to landlord')
       req.session.save(() => {
-        req.session.landlord_id = dbLandlordData.landlord_id;
+        req.session.landlord_id = dbLandlordData.id;
         req.session.email = dbLandlordData.email;
         req.session.loggedIn = true;
 

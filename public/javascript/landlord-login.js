@@ -1,14 +1,14 @@
 const loginLandlord = async function(event) {
     event.preventDefault();
     const email = document.querySelector("#email");
-    console.log('hellooooooo??', email)
     const password = document.querySelector("#password");
+    console.log('yo',email.value, password.value)
   if (email && password) {
-    fetch("/api/landlord/login", {
+    await fetch("/api/landlord/login", {
       method: "post",
       body: JSON.stringify({
-        email = email.value,
-        password = password.value
+        email : email.value,
+        password: password.value
       }),
       headers: { "Content-Type": "application/json" }
     })
@@ -21,5 +21,5 @@ const loginLandlord = async function(event) {
   };
   
   document
-    .querySelector("#landlordSubmit")
+    .querySelector(".form-wrapper")
     .addEventListener("submit", loginLandlord);

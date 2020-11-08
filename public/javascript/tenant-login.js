@@ -3,6 +3,7 @@ const loginFormHandler = async function(event) {
  
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
+  console.log('hellooooooo??', email)
   if (email && password) {
     const response = await fetch("/api/tenant/login", {
       method: "post",

@@ -88,9 +88,15 @@ router.get('/:id', (req, res) => {
         res.status(400).json({ message: 'No tenant found with that e-mail address!'})
         return;
       }
+      const validPassword = dbTenantData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
       
-      console.log('helllllooooooooo!!!')
-      
+      console.log('hellooooooo??')
+      console.log('welcome to landlord')
       req.session.save(() => {
         req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;

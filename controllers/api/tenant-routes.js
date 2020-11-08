@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
     .then(dbUserData => {
       req.session.save(() => {
         req.session.tenant_id = dbUserData.id;
-        req.session.email = dbUserData.username;
+        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
     
         res.json(dbUserData);
@@ -89,7 +89,7 @@ router.get('/:id', (req, res) => {
         return;
       }
       
-     
+      console.log('helllllooooooooo!!!')
       
       req.session.save(() => {
         req.session.tenant_id = dbTenantData.id;

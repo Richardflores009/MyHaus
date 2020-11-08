@@ -15,10 +15,6 @@ router.get('/', (req, res) => {
         {
         model: Property,
         attributes: ['id', 'pet', 'maintenance', 'address', 'description']
-        },
-        {
-        model: Tenant,
-        attributes: ["first_name", "last_name", "email"]
         }
       ]
     })
@@ -66,12 +62,14 @@ router.get('/', (req, res) => {
       comment_id: req.body.comment_id,
       property_id: req.body.property_id
     })
-    .then(dbLandlordData => {
-      if (!dbLandlordData) {
-        res.status(404).json({ message: 'Please enter all fields!'});
-        return;
-      }
-      res.json(dbLandlordData);
+    .then(dbUserData => {
+      req.session.save(() => {
+        req.session.landlord_id = dbUserData.id;
+        req.session.email = dbUserData.email;
+        req.session.loggedIn = true;
+    
+        res.json(dbUserData);
+      });
     })
     .catch(err => {
       console.log(err)
@@ -112,17 +110,14 @@ router.get('/', (req, res) => {
         return;
       }
 
-      const validPassword = dbLandlordData.checkPassword(req.body.password);
-
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect Password'});
-        return;
-      }
+      console.log('hellooooooo??')
+      console.log('welcome to landlord')
       req.session.save(() => {
+        req.session.landlord_id = dbLandlordData.landlord_id;
         req.session.email = dbLandlordData.email;
         req.session.loggedIn = true;
 
-        res.json({dbLandlordData, message: 'You are now logged in!'});
+        res.json({ user: dbLandlordData, message: 'You are now logged in!'});
       });
     });
   });

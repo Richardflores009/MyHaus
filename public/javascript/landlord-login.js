@@ -1,10 +1,10 @@
-const loginFormHandler = async function(event) {
+const loginLandlord = async function(event) {
     event.preventDefault();
-  
-    const email = document.querySelector("#email-login");
-    const password = document.querySelector("#password-input-login");
-  
-    fetch("/api/landlord-routes/login", {
+    const email = document.querySelector("#email");
+    console.log('hellooooooo??', email)
+    const password = document.querySelector("#password");
+  if (email && password) {
+    fetch("/api/landlord/login", {
       method: "post",
       body: JSON.stringify({
         email = email.value,
@@ -13,11 +13,13 @@ const loginFormHandler = async function(event) {
       headers: { "Content-Type": "application/json" }
     })
       .then(function() {
-        document.location.replace("/landlord-dashboard");
+        document.location.replace("/");
       })
       .catch(err => console.log(err));
+  }
+    
   };
   
   document
-    .querySelector(".form-wrapper")
-    .addEventListener("submit", loginFormHandler);
+    .querySelector("#landlordSubmit")
+    .addEventListener("submit", loginLandlord);

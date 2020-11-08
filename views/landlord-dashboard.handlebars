@@ -1,0 +1,16 @@
+
+{{#if property.length}}
+<section>
+  <h2>Your Properties</h2>
+  <ol>
+    {{#each property}}
+    <li>
+        <div>Welcome {{landlord.first_name}} {{landlord.last_name}} you are the property manager</div>
+        <div>property address: {{address}} property description: {{description}}</div>
+        <div>tenant's first name is: {{tenant.first_name}}</div>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+<script src="/javascript/tenant-signup"></script>

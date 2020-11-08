@@ -1,5 +1,5 @@
 const withAuth = (req, res, next) => {
-  if (!req.session.tenantId || !req.session.landlordId) {
+  if (!req.session.tenant_id || !req.session.landlord_id) {
     res.redirect("/login");
   } else {
     next();

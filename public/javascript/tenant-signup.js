@@ -1,3 +1,5 @@
+
+
 const signupFormHandler = async function (event) {
   event.preventDefault();
 
@@ -8,8 +10,8 @@ const signupFormHandler = async function (event) {
   const tenantPetEl = document.querySelector("#tenantPet");
   const invitationEl = document.querySelector("#invitation");
 
-  const tenantPetyes = document.querySelector("#tenantpetyes");
-  const tenantPetno = document.querySelector("#tenantpetno");
+  const tenantPetyes = document.querySelector("#petYes");
+  const tenantPetno = document.querySelector("#petNo");
 
   //     let tenantPet;
   //     if (tenantPetyes.checked === true) {
@@ -19,29 +21,67 @@ const signupFormHandler = async function (event) {
   // tenantPet = false;
 
   //      }
-  if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
-    if (tenantPetyes.checked || tenantPetno.checked) {
+  if (tenantPetyes.checked = true, emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
+    
       fetch("/api/tenant", {
           method: "post",
           body: JSON.stringify({
             email: emailEl.value,
             password: passwordEl.value,
-            firstname: firstNameEl.value,
-            lastname: lastNameEl.value,
-            tenantPet: tenantPetyes.checked,
-            invitation: invitationEl.value
+            first_name: firstNameEl.value,
+            last_name: lastNameEl.value,
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(async function() {
+          pet = tenantPetno.checked
+          tenant_id = 1
+          await fetch(`/api/property/edit/6d68ca95-2fe0-4836-abe3-d50a967fdf8c`, {
+            method: "put",
+            body: JSON.stringify({
+              tenant_id,
+              pet
+            }),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+        })
+        .then(function () {
+          document.location.replace('/tenant');
+        })
+        .catch(err => console.log(err));
+  
+  }
+}
+
+const signupPropertyAssignment = async function(event) {
+  event.preventDefault()
+
+  const idProperty = document.querySelector("#invitation").value;
+  console.log('propertyid',idProperty)
+  const tenant_id = 18
+  if (idProperty.value) {
+    
+      fetch(`/api/property/edit/${idProperty}`, {
+          method: "put",
+          body: JSON.stringify({
+            tenant_id
           }),
           headers: {
             "Content-Type": "application/json"
           }
         })
         .then(function () {
-          document.location.replace("/dashboard");
+          document.location.replace('/tenant');
         })
         .catch(err => console.log(err));
-    };
   }
+
 }
+
 // in the html we need to put this in the onclick tenantpetyes runs tenantpetonlickyes 
 const tenantpetcheckboxyes = () => {
   tenantPetno.checked = false;

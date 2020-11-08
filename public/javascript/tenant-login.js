@@ -1,21 +1,23 @@
 const loginFormHandler = async function(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#email-login");
-  const password = document.querySelector("#password-input-login");
-
-  fetch("/api/tenant-routes/login", {
-    method: "post",
-    body: JSON.stringify({
-      email: email.value,
-      password: password.value
-    }),
-    headers: { "Content-Type": "application/json" }
-  })
-    .then(function() {
-      document.location.replace("/tenant-dashboard");
+  const email = document.querySelector("#email");
+  const password = document.querySelector("#password");
+  if (email && password) {
+    const response = await fetch("/api/tenant/login", {
+      method: "post",
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value
+      }),
+      headers: { "Content-Type": "application/json" }
     })
-    .catch(err => console.log(err));
+      .then(function() {
+        document.location.replace("/tenant");
+      })
+      .catch(err => console.log(err));
+  }
+  
 };
 
 document

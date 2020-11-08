@@ -33,23 +33,20 @@ router.get('/:id', (req, res) => {
   
   // CREATE NEW TENANT
   router.post('/', (req, res) => {
+    console.log(req.body)
     Tenant.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      property_id: req.body.property_id
     })
-    .then(dbTenantData => {
-      if (!dbTenantData) {
-        res.status(404).json({ message: 'follow the category entry format, dummy'});
-        return;
-      }
+    .then(dbUserData => {
       req.session.save(() => {
-        req.session.email =dbTenant.email;
+        req.session.tenant_id = dbUserData.id;
+        req.session.email = dbUserData.username;
         req.session.loggedIn = true;
-
-        res.json(dbTenantData);
+    
+        res.json(dbUserData);
       });
     })
     .catch(err => {
@@ -98,10 +95,11 @@ router.get('/:id', (req, res) => {
         return;
       }
       req.session.save(() => {
+        req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;
         req.session.loggedIn = true;
 
-        res.json({dbTenantData, message: 'You are now logged in!'});
+        res.json({user: dbTenantData, message: 'You are now logged in!'});
       });
     });
   });

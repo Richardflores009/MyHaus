@@ -33,23 +33,20 @@ router.get('/:id', (req, res) => {
   
   // CREATE NEW TENANT
   router.post('/', (req, res) => {
+    console.log(req.body)
     Tenant.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      property_id: req.body.property_id
     })
-    .then(dbTenantData => {
-      if (!dbTenantData) {
-        res.status(404).json({ message: 'Please enter all required fields.'});
-        return;
-      }
+    .then(dbUserData => {
       req.session.save(() => {
-        req.session.email =dbTenant.email;
+        req.session.tenant_id = dbUserData.id;
+        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
-
-        res.json(dbTenantData);
+    
+        res.json(dbUserData);
       });
     })
     .catch(err => {
@@ -80,6 +77,7 @@ router.get('/:id', (req, res) => {
 
   // TENANT LOGIN
   router.post('/login', (req, res) => {
+    
     // expects {email, password}
     Tenant.findOne({
       where: {
@@ -90,20 +88,24 @@ router.get('/:id', (req, res) => {
         res.status(400).json({ message: 'No tenant found with that e-mail address!'})
         return;
       }
-
       const validPassword = dbTenantData.checkPassword(req.body.password);
 
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect Password'});
-        return;
-      }
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+      
+      console.log('hellooooooo??')
+      console.log('welcome to landlord')
       req.session.save(() => {
+        req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;
         req.session.loggedIn = true;
-
-        res.json({dbTenantData, message: 'You are now logged in!'});
+    
+        res.json({ user: dbTenantData, message: 'You are now logged in!' });
       });
-    });
+    })
+    
   });
 
   // TENANT LOGOUT

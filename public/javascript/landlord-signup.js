@@ -1,25 +1,25 @@
 const signupFormHandler = async function(event) {
     event.preventDefault();
   
-    const llemailEl = document.querySelector("#llemail-input-signup");
-    const llpasswordEl = document.querySelector("#llpassword-input-signup");
-    const llfirstNameEl = document.querySelector("#llfirstname-input-signup");
-    const lllastNameEl = document.querySelector("#lllastname-input-signup");
+    const emailEl = document.querySelector("#landlord-email");
+    const passwordEl = document.querySelector("#landlord-password");
+    const firstNameEl = document.querySelector("#landlord-firstName");
+    const lastNameEl = document.querySelector("#landlord-lastName");
     
-if (llemailEl.value && llpasswordEl.value && llfirstNameEl.value && lllastNameEl.value){
+if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value){
     fetch("/api/landlord", {
       method: "post",
       body: JSON.stringify({
-        llemail: llemailEl.value,
-        llpassword: llpasswordEl.value,
-        llfirstname: llfirstNameEl.value,
-        lllastname: lllastNameEl.value,
+        email: emailEl.value,
+        password: passwordEl.value,
+        first_name: firstNameEl.value,
+        last_name: lastNameEl.value,
        
       }),
       headers: { "Content-Type": "application/json" }
     })
       .then(function() {
-        document.location.replace("/dashboard");
+        document.location.replace("/");
       })
       .catch(err => console.log(err));
   };

@@ -11,7 +11,7 @@ async function newPropertyHandler(event) {
     const response = await fetch(``, {
         method: 'POST',
         body: JSON.stringify({
-            tenantName,
+            address,
             complexName,
             unitNumber,
             rentAmount

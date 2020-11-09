@@ -97,6 +97,27 @@ router.get('/', (req, res) => {
       res.status(500).json(err)
     })
   });
+
+  router.put('/edit/:id', (req, res) => {
+    req.body.tenant_id = req.session.tenant_id
+    console.log('pet', req.body.pet)
+    Property.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message: 'nope try again'});
+        return;
+      }
+      res.json(dbCategoryData)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
+  });
   
   router.delete('/:id', (req, res) => {
     // delete a category by its `id` value

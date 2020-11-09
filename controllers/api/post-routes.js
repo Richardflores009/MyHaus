@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../../config/config');
 const { Post, Landlord, Tenant, Comment, Property } = require('../../models');
 
-// get all users
+// GET ALL POSTS (MAINTENANCE REQUESTS)
 router.get('/', (req, res) => {
   Post.findAll({
     order: [['created_at', 'DESC']],
@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
       'created_at'
     ],
     include: [
-      // include the Comment model here:
       {
         model: Comment,
         attributes: ['id', 'body', 'landlord_id', 'tenant_id'],
@@ -42,6 +41,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// GET SPECIFIC POST (MAINTENANCE REQUEST)
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbPostData => {
     if (!dbPostData) {
-      res.status(404).json({ message : 'no post found with this id'})
+      res.status(404).json({ message : 'No request found with this id.'})
       return;
     }
     res.json(dbPostData);
@@ -76,6 +76,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// CREATE NEW MAINTENANCE REQUEST
 router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
@@ -89,7 +90,7 @@ router.post('/', (req, res) => {
   });
 });
 
-
+// UPDATE A MAINTENANCE REQUEST
 router.put('/:id', (req, res) => {
   Post.update(
     {
@@ -103,7 +104,7 @@ router.put('/:id', (req, res) => {
   )
   .then(dbPostData => {
     if (!dbPostData) {
-      res.status(404).json({ message: 'no post found with this id' })
+      res.status(404).json({ message: 'No request found with this id' })
       return;
     }
     res.json(dbPostData)

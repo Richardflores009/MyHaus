@@ -1,7 +1,12 @@
 const { Sequelize, Model, DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/config');
+const bcrypt = require('bcrypt');
 
-class Landlord extends Model {}
+class Landlord extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+      }
+}
 
 Landlord.init(
     {
@@ -22,6 +27,7 @@ Landlord.init(
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
             isEmail: true
         }
@@ -36,6 +42,18 @@ Landlord.init(
 
 }, 
 {
+    hooks: {
+        // set up beforeCreate lifecycle "hook" functionality
+        async beforeCreate(newUserData) {
+          newUserData.password = await bcrypt.hash(newUserData.password, 10);
+          return newUserData;
+        },
+        // set up beforeUpdate lifecycle "hook" functionality
+        async beforeUpdate(updatedUserData) {
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+          return updatedUserData;
+        }
+      },      
     sequelize,
     timestamps: false,
     freezeTableName: true,

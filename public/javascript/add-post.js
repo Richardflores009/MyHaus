@@ -1,9 +1,15 @@
 // JAVASCRIPT FOR TENANTS POSTING A MAINTENANCE REQUEST
 
-async function newFormHandler(event) {
+// Display Maintenance Request Modal
+function displayMaintenanceModal() {
+  console.log("displayMaintenanceModelFunction")
+};
+
+// Input and Submit Maintenance Request
+async function newRequestHandler(event) {
     event.preventDefault();
   
-    // REMINDER: Connect with Tenant Handlebars
+    // REMINDER: Connect with Tenant Handlebars (Modal or Maintenance Request Form Page)
     const title = document.querySelector('').value;
     const postBody = document.querySelector('').value;
   
@@ -19,10 +25,13 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/message');
+      document.location.replace('/tenant');
     } else {
       alert(response.statusText);
     }
   }
-  
-  document.querySelector('').addEventListener('submit', newFormHandler);
+  // Event Listener for Maintenance Begin Request Button
+  document.querySelector('#maintenance-begin-request').addEventListener('click', displayMaintenanceModal);
+
+  // REMINDER: Add Event Listener for Maintenance Request Submit Button
+  //document.querySelector('#').addEventListener('click', newRequestHandler);

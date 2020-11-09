@@ -1,16 +1,31 @@
+<div class="col-10 main-container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <!--PUT INFO OF TENANT IN THIS CARD-->
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Test Tenant</h5>
+                    <div class="row">
+                        <div class="col-3">
+                            <ul class="list-wrapper-left">
+                                <li class="list-item">Complex:</li>
+                                <li class="list-item">Apt #: </li>
+                                <li class="list-item">Rent: </li>
+                            </ul>
+                        </div>
+                        <div class="col-9">
+                            <ul class="list-wrapper-right">
+                                <li class="list-item">Green Wood North</li>
+                                <li class="list-item">1224</li>
+                                <li class="list-item">$1000.00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">More Info</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-{{#if property.length}}
-<section>
-  <h2>Your Properties</h2>
-  <ol>
-    {{#each property}}
-    <li>
-        <div>Welcome {{landlord.first_name}} {{landlord.last_name}} you are the property manager</div>
-        <div>property address: {{address}} property description: {{description}}</div>
-        <div>tenant's first name is: {{tenant.first_name}}</div>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-<script src="/javascript/tenant-signup"></script>
+<div class="fab shadow" data-toggle="modal" data-target="#create-tenant">+</div>

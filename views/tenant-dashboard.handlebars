@@ -1,15 +1,65 @@
-{{#if property.length}}
-<section>
-  <h2>Your Properties</h2>
-  <ol>
-    {{#each property}}
-    <li>
-        <div>Welcome {{tenant.first_name}} {{tenant.last_name}} you are tenant</div>
-        <div>property address: {{address}} property description: {{description}}</div>
-        <div>tenant's first name is: {{landlord.first_name}}</div>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-<script src="/javascript/tenant-signup"></script>
+<div class="col-10 main-container">
+    <h1 class="dashboard-title">Hello, <br>tenant name!</h1>
+    <div class="row justify-content-start">
+        <div class="table-wrapper shadow col-5">
+            <div class="table-title">Your Information</div>
+            <div class="row table-info">
+                <div class="col-6">
+                    <form action="">
+                        <fieldset disabled="disabled">
+                            <div class="form-group">
+                                <label for="disabledTextInput">First Name</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Last Name</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Email</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <form action="">
+                        <fieldset disabled="disabled">
+                            <div class="form-group">
+                                <label for="disabledTextInput">Complex</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Apartment</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Rent</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <a href="#" data-toggle="modal" data-target="#update-info" class="update-button">Update Info</a>
+        </div>
+        <div class="col-6">
+            <div class="col-12 service-wrapper shadow">
+                <div class="table-title">Request Maintenance</div>
+                <p class="table-desc">Please contact us if you need any maintenance on:</p>
+                <div class="table-info">
+                    <ul>
+                        <li>Physical damages</li>
+                        <li>Appliances</li>
+                    </ul>
+                </div>
+                <a href="#" class="update-button">Begin Request</a>
+            </div>
+            <div class="col-12 service-wrapper shadow">
+                <div class="table-title">Update Pet Status</div>
+                <p class="table-desc">Please update if you get or lose a pet</p>
+                <a href="#" class="update-button">Update</a>
+            </div>
+        </div>
+    </div>
+</div>

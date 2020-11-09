@@ -9,7 +9,7 @@ html, body {
 
 /*login/sign up page*/
 .signin-background {
-    background-image: url('login-background.jpg');
+    background-image: url('/img/login-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 55vw;
@@ -74,22 +74,24 @@ footer {
 
 /*dashboard page*/
 .nav-container {
-    color: black;
+    background-color: #7D9694;
+    color: white;
     position: fixed;
-    width: 100vw;
-    height: 100vw;
+    height: 100vh;
+    width: 100%;
 }
 .nav-container a {
     padding: 15px;
     text-decoration: none;
     width: 90%;
     font-size: 20px;
-    color: black;
+    color: white;
     display: block;
 }
 .nav-link:hover {
-    background: #7D9694;
+    background: white;
     transition: 0.3s;
+    color: black;
 }
 .nav-title {
     padding: 15px; 
@@ -104,7 +106,7 @@ footer {
     transition: 0.3s;
 }
 .main-container {
-    background-image: url('dashboard-bg.png');
+    background-image: url('/img/dashboard-bg.png');
     background-repeat: repeat;
     height: 60vw;
 }
@@ -166,17 +168,36 @@ footer {
 .form-button:focus {
     outline: none;
 }
-
+.fab {
+    width: 70px;
+    height: 70px;
+    background-color: #7D9694;
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+  
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+  
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+ }
+  
+ .fab:hover {
+    box-shadow: 0 6px 14px 0 #666;
+    transform: scale(1.05);
+    cursor: pointer;
+ }
 /*card styles*/
 .card {
     width: 90%;
     margin: 25px 0;
+    border-radius: 15px;
 }
 .card h5 {
     text-align: center;
-}
-.card img {
-    width: 100%;
 }
 .list-wrapper-left {
     float: left;
@@ -201,35 +222,59 @@ footer {
     border: none;
 }
 
-/*tenant dashboard page*/
-form textarea {
+/*tenant dashboard page*/           
+.table-wrapper {
+    background: white;
+    padding: 0;
+    border-radius: 10px;
+    margin: 15px;
+}
+.table-wrapper input, label {
     width: 100%;
 }
-.modal-button-wrapper {
-    bottom: 0;
-    position: absolute;
-    width: 1200px;
-    margin: 0 auto;
-    
+.table-wrapper input {
+    padding: 5px;
 }
-.modal-button-wrapper button {
-    box-sizing: content-box;
-    display: inline;
-    background: #7D9694;
+.modal input {
+    padding: 5px;
+}
+.table-title {
     color: white;
-    border: none;
-    padding: 15px 10px;
+    background: #7D9694;
+    width: 100%;
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.table-info {
+    padding: 5px 15px;
+    background-color: white;
+}
+.table-desc {
+    padding: 5px 15px;
 }
 .update-button {
     width: 25%;
+    text-align: center;
     float: right;
     color: white;
     border: none;
-    padding: 5px 10px;
-    margin: 5px 0;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 15px;
     background: #7D9694;
 }
-.update-wrapper {
+.update-button:hover {
+    text-decoration: none;
+    color: white;
+}
+.update-button:focus {
+    outline: none;
+}
+.service-wrapper {
+    background: white;
     width: 100%;
-    margin: 25px 10px 0 0;
+    padding: 0;
+    margin: 15px;
+    border-radius: 10px;
 }

@@ -1,7 +1,10 @@
+// TENANTS AND LANDLORDS CAN COMMENT ON MAINTENANCE REQUEST POSTS
+
 async function commentFormHandler(event) {
     event.preventDefault();
   
-    const comment_text = document.querySelector('#comment-text').value.trim();
+    // REMINDER: Connect with Handlebars
+    const comment_text = document.querySelector('').value.trim();
   
     const post_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
@@ -26,7 +29,7 @@ async function commentFormHandler(event) {
         }
       }
 }
-  
-  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+  // REMINDER: CONNECT WITH HANDLEBARS
+  document.querySelector('').addEventListener('submit', commentFormHandler);
   
   

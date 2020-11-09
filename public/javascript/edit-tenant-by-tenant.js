@@ -3,20 +3,27 @@
 async function editTenantHandler(event) {
     event.preventDefault();
 
-    const propertyId = document.querySelector('').value;
     const tenantName = document.querySelector('').value;
+    const tenantEmail = document.querySelector('').value;
+    const tenantId = document.querySelector('').value;
     
-    // Update Info in Database
-    await fetch(``, {
+    const response = await fetch(`/api/tenant/${tenantId}`, {
         method: 'PUT',
         body: JSON.stringify({
-            tenantName
+            tenantName,
+            tenantEmail
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     });
+    if (response.ok) {
+        document.location.replace('');
+        } else {
+        alert(response.statusText);
+        }
 };
 
+// REMINDER: Connect with Handlebars
 // Submit Button
 document.querySelector('').addEventListener('submit', editTenantHandler);

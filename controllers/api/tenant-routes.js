@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
     })
     .then(dbTenantData => {
       if (!dbTenantData) {
-        res.status(404).json({ message: 'follow the category entry format, dummy'});
+        res.status(404).json({ message: 'Please enter all required fields.'});
         return;
       }
       req.session.save(() => {

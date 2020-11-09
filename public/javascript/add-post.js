@@ -3,7 +3,7 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    // Connect with Tenant Handlebars
+    // REMINDER: Connect with Tenant Handlebars
     const title = document.querySelector('').value;
     const postBody = document.querySelector('').value;
   

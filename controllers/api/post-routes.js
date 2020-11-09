@@ -90,7 +90,7 @@ router.post('/', (req, res) => {
   });
 });
 
-// UPDATE A MAINTENANCE REQUEST
+// UPDATE A POST (MAINTENANCE REQUEST)
 router.put('/:id', (req, res) => {
   Post.update(
     {
@@ -115,6 +115,7 @@ router.put('/:id', (req, res) => {
   });
 });
 
+// DELETE A POST (MAINTENANCE REQUEST)
 router.delete('/:id', (req, res) => {
   Post.destroy({
     where: {

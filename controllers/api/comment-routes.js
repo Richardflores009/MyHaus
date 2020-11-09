@@ -55,13 +55,8 @@ router.get('/', (req, res) => {
   router.post('/', (req, res) => {
     Comment.create({
       body: req.body.body,
-<<<<<<< HEAD
       landlord_id: req.session.landlord_id,
       tenant_id: req.session.tenant_id,
-=======
-      landlord_id: req.body.landlord_id,
-      tenant_id: req.body.tenant_id,
->>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
       post_id: req.body.post_id
     })
     .then(dbCategoryData => {

@@ -9,7 +9,7 @@ html, body {
 
 /*login/sign up page*/
 .signin-background {
-    background-image: url('/public/img/login-background.jpg');
+    background-image: url('img/login-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 55vw;

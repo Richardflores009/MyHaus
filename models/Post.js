@@ -17,13 +17,10 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-<<<<<<< HEAD
       body: {
         type: DataTypes.STRING,
         allowNull: false
       },
-=======
->>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
       tenant_id: {
         type: DataTypes.INTEGER,
         references: {

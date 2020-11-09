@@ -17,6 +17,10 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+      body: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       tenant_id: {
         type: DataTypes.INTEGER,
         references: {

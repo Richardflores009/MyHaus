@@ -3,6 +3,7 @@ const sequelize = require('../config/config');
 const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 
+<<<<<<< HEAD
 // get single post
 router.get('/', (req, res) => {
   console.log("tenantroutepageid",req.session.landlord_id)
@@ -58,6 +59,24 @@ router.get("/login", (req, res) => {
     // }
   
     res.render("landlord-signup");
+=======
+router.get("/login", (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect("/");
+      return;
+    }
+  
+    res.render("login");
+  });
+  
+  router.get("/signup", (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect("/");
+      return;
+    }
+  
+    res.render("signup");
+>>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
   });
   
   module.exports = router;

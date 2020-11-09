@@ -10,7 +10,11 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
+<<<<<<< HEAD
     comment_text: {
+=======
+    body: {
+>>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
         type: DataTypes.STRING,
         allowNull: false
     },

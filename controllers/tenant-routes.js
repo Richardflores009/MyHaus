@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/config');
 const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
+<<<<<<< HEAD
 // get single post
 router.get('/', (req, res) => {
   console.log("tenantroutepageid",req.session.tenant_id)
@@ -48,6 +49,16 @@ router.get("/login", (req, res) => {
     }
   
     res.render("tenant-login");
+=======
+
+router.get("/login", (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect("/");
+      return;
+    }
+  
+    res.render("login");
+>>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
   });
   
   router.get("/signup", (req, res) => {
@@ -56,6 +67,7 @@ router.get("/login", (req, res) => {
       return;
     }
   
+<<<<<<< HEAD
     res.render("tenant-signup");
   });
   
@@ -71,4 +83,9 @@ router.post('/logout', (req, res) => {
   }
 });
 
+=======
+    res.render("signup");
+  });
+  
+>>>>>>> 5560d917371baea5fe52d4820a5c367ad11c3f60
   module.exports = router;

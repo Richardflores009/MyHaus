@@ -1,5 +1,5 @@
 <div class="col-10 main-container">
-    <h1 class="dashboard-title">Hello, <br>tenant name!</h1>
+    <h1 class="dashboard-title">Hello, <br> put data!</h1>
     <div class="row justify-content-start">
         <div class="table-wrapper shadow col-5">
             <div class="table-title">Your Information</div>
@@ -64,5 +64,37 @@
     </div>
 </div>
 <div><button id="tenantlogout" type="button" class="form-button">Submit</button></div>
+
+<!--modal-->
+<div class="modal fade" id="update-info" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="left-form">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="firstName" placeholder="put in data">
+                    </div>
+                    <div class="right-form">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="lastName" placeholder="Jobs">
+                    </div>
+                    <label for="email">Email:</label>
+                    <input type="text" class="email" placeholder="email">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="form-button">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="/javascript/add-post.js"></script>
-    <script src="/javascript/tenant-logout"></script>
+<script src="/javascript/tenant-logout"></script>

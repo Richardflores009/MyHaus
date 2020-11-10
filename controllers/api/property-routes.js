@@ -64,7 +64,8 @@ router.get('/', (req, res) => {
         pet: req.body.pet,
         property_id: req.body.property_id,
         landlord_id: req.body.landlord_id,
-        tenant_id: req.body.tenant_id
+        tenant_id: req.body.tenant_id,
+        rent: req.body.rent
     })
     .then(dbCategoryData => {
       if (!dbCategoryData) {

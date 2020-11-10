@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
       'address',
       'description',
       'maintenance',
-      'pet'
+      'pet',
+      'rent'
     ],
     include: [
       {
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Tenant,
-        attributes: ['first_name']
+        attributes: ['first_name', 'last_name', 'email']
       }
     ]
   })

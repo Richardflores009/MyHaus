@@ -11,6 +11,10 @@ Property.init({
     },
     address: DataTypes.STRING,
     description: DataTypes.STRING,
+    rent: {
+        type: DataTypes.STRING,
+        defaultValue: '$1000'
+    },
     maintenance: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

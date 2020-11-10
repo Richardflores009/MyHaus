@@ -1,33 +1,36 @@
+{{#if property.length}}
 <div class="col-10 main-container">
     <div class="row justify-content-center">
         <div class="col-4">
             <!--PUT INFO OF TENANT IN THIS CARD-->
+            {{#each property as |property|}}
             <div class="card shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Test Tenant</h5>
+                    <h5 class="card-title">{{tenant.first_name}} {{tenant.last_name}}</h5>
                     <div class="row">
                         <div class="col-3">
                             <ul class="list-wrapper-left">
-                                <li class="list-item">Complex:</li>
-                                <li class="list-item">Apt #: </li>
+                                <li class="list-item">Address:</li>
+                                <li class="list-item">Description: </li>
                                 <li class="list-item">Rent: </li>
                             </ul>
                         </div>
                         <div class="col-9">
                             <ul class="list-wrapper-right">
-                                <li class="list-item">Green Wood North</li>
-                                <li class="list-item">1224</li>
-                                <li class="list-item">$1000.00</li>
+                                <li class="list-item">{{property.address}}</li>
+                                <li class="list-item">{{property.description}}</li>
+                                <li class="list-item">{{property.rent}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <a href="#">More Info</a>
             </div>
+            {{/each}}
         </div>
     </div>
 </div>
-
+{{/if}}
 <div class="fab shadow" data-toggle="modal" data-target="#create-tenant">+</div>
 
 <!--MODALS FOR CREATING TENANT-->

@@ -5,9 +5,9 @@ function logout() {
       headers: { "Content-Type": "application/json" }
     })
       .then(function() {
-        document.location.replace("/login");
+        document.location.replace("/tenant-login");
       })
       .catch(err => console.log(err));
   }
   
-  document.querySelector("#logout-link").addEventListener("click", logout);
+  document.querySelector("#tenantlogout").addEventListener("click", logout);

@@ -28,49 +28,11 @@
     </div>
     <main>
         {{{ body }}}
-
-
-
-
-
-        {{!-- <!--MODALS FOR CREATING TENANT-->
-        <div class="modal fade" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create New Tenant</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <!--form to enter new tenant-->
-                    <div class="modal-body">
-                        <form action="">
-                            <div class="left-form">
-                                <label for="firstName">First Name:</label>
-                                <input type="text" class="firstName" placeholder="Steve">
-                                <label for="complexName">Complex:</label>
-                                <input type="text" class="complexName" placeholder="Green Hill Zone">
-                                <label for="unitNumber">Unit #</label>
-                                <input type="text" class="unitNumber" placeholder="1234">
-                            </div>
-                            <div class="right-form">
-                                <label for="lastName">Last Name:</label>
-                                <input type="text" class="lastName" placeholder="Jobs">
-                                <label for="rentAmt">Rent Amount:</label>
-                                <input type="text" class="rentAmt" placeholder="1000.00">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="form-button" data-dismiss="modal">Close</button>
-                        <button type="button" class="form-button">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </main>
-    
+    {{#if loggedIn}}
+    <script src="/javascript/tenant-logout.js"></script>
+    {{/if}}
+    <script src="/javascript/add-post.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

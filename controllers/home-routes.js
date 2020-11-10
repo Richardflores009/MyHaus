@@ -25,7 +25,11 @@ router.get('/', (req, res) => {
       },
       {
         model: Tenant,
+<<<<<<< HEAD
         attributes: ['first_name']
+=======
+        attributes: ['first_name', 'last_name', 'email']
+>>>>>>> feature/handlebars
       }
     ]
   })

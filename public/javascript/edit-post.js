@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+// TENANT CAN EDIT OR DELETE MAINTENANCE REQUEST POST
+
+>>>>>>> feature/handlebars
 const idPost = document.querySelector('input[name="post-id"]').value;
 
 async function editPost(event) {

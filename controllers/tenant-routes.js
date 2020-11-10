@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
       'address',
       'description',
       'maintenance',
-      'pet'
+      'pet',
+      'rent'
     ],
     include: [
       {

@@ -29,3 +29,41 @@
 </div>
 
 <div class="fab shadow" data-toggle="modal" data-target="#create-tenant">+</div>
+
+<!--MODALS FOR CREATING TENANT-->
+        <div class="modal fade" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Tenant</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--form to enter new tenant-->
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="left-form">
+                                <label for="firstName">First Name:</label>
+                                <input type="text" class="firstName" placeholder="Steve">
+                                <label for="complexName">Complex:</label>
+                                <input type="text" class="complexName" placeholder="Green Hill Zone">
+                                <label for="unitNumber">Unit #</label>
+                                <input type="text" class="unitNumber" placeholder="1234">
+                            </div>
+                            <div class="right-form">
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" class="lastName" placeholder="Jobs">
+                                <label for="rentAmt">Rent Amount:</label>
+                                <input type="text" class="rentAmt" placeholder="1000.00">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="form-button" data-dismiss="modal">Close</button>
+                        <button type="button" class="form-button">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+

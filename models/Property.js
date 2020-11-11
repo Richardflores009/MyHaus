@@ -10,10 +10,11 @@ Property.init({
         primaryKey: true
     },
     address: DataTypes.STRING,
-    description: DataTypes.STRING,
+    complex: DataTypes.STRING,
+    unit: DataTypes.STRING,
     rent: {
-        type: DataTypes.STRING,
-        defaultValue: '$1000'
+        type: DataTypes.INTEGER,
+        defaultValue: 1000
     },
     maintenance: {
         type: Sequelize.BOOLEAN,

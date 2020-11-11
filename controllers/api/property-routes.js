@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
         'pet',
         'maintenance',
         'address',
-        'description',
+        'complex',
+        'unit',
+        'rent'
       ],
       include: [
         {
@@ -59,13 +61,14 @@ router.get('/', (req, res) => {
     // create a new landlord
     Property.create({
         address: req.body.address,
-        description: req.body.description,
+        complex: req.body.complex,
         maintenance: req.body.maintenance,
         pet: req.body.pet,
         property_id: req.body.property_id,
         landlord_id: req.body.landlord_id,
         tenant_id: req.body.tenant_id,
-        rent: req.body.rent
+        rent: req.body.rent,
+        unit: req.body.unit
     })
     .then(dbCategoryData => {
       if (!dbCategoryData) {
@@ -81,17 +84,21 @@ router.get('/', (req, res) => {
   });
   
   router.put('/:id', (req, res) => {
+    console.log('lololol', affectedRows)
     Property.update(req.body, {
+      
       where: {
         id: req.params.id
+        
       }
     })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'nope try again'});
-        return;
+    .then(affectedRows => {
+      if (affectedRows > 0) {
+        console.log('lololol', affectedRows)
+        res.status(200).end();
+      } else {
+        res.status(404).end();
       }
-      res.json(dbCategoryData)
     })
     .catch(err => {
       console.log(err)
@@ -100,8 +107,6 @@ router.get('/', (req, res) => {
   });
 
   router.put('/edit/:id', (req, res) => {
-    req.body.tenant_id = req.session.tenant_id
-    console.log('pet', req.body.pet)
     Property.update(req.body, {
       where: {
         id: req.params.id

@@ -4,7 +4,6 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 // get single post
 router.get('/', (req, res) => {
-  console.log("tenantroutepageid",req.session.tenant_id)
   Property.findAll({
     where: {
       // use the ID from the session
@@ -13,9 +12,11 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'address',
-      'description',
       'maintenance',
-      'pet'
+      'pet',
+      'rent',
+      'complex',
+      'unit'
     ],
     include: [
       {
@@ -29,7 +30,6 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      console.log('yoyoyoy', dbPostData)
       // serialize data before passing to template
       const property = dbPostData.map(property => property.get({ plain: true }));
       

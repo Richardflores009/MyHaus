@@ -1,4 +1,4 @@
-{{#if property.length}}
+
 <div class="col-10 main-container">
     <div class="row justify-content-center">
         <h1 class="dashboard-title">put data's dashboard</h1>
@@ -11,55 +11,111 @@
                     <div class="row">
                         <div class="col-3">
                             <ul class="list-wrapper-left">
-                                <li class="list-item">Address:</li>
-                                <li class="list-item">Description: </li>
+                                <li class="list-item">Complex:</li>
+                                <li class="list-item">Unit: </li>
                                 <li class="list-item">Rent: </li>
+                                <li class="list-item">Address: </li>
+                                 <li class="list-item">PropertyId: </li>
                             </ul>
                         </div>
                         <div class="col-9">
                             <ul class="list-wrapper-right">
+                                <li class="list-item">{{property.complex}}</li>
+                                <li class="list-item">{{property.unit}}</li>
+                                <li class="list-item">${{property.rent}}</li>
                                 <li class="list-item">{{property.address}}</li>
-                                <li class="list-item">{{property.description}}</li>
-                                <li class="list-item">{{property.rent}}</li>
+                                <li class="list-item">${{property.id}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <a href="#">More Info</a>
+               
+                <button data-toggle="modal" data-target="#s{{property.id}}">More Info</button>
+
+                 <!--MODALS FOR Updating Property-->
+
+        <div class="modal" id="s{{property.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Property</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--form to enter new tenant-->
+                    <div class="modal-body">
+                        <form id="form-update" action="">
+                            <div class="left-form">
+                                <input type="hidden" id="propId" value="{{property.id}}" />
+                                <label for="complexName">Complex Name:</label>
+                                <input id="updateComplex" type="text" class="complexName" value="{{property.complex}}">
+                                <label for="unitNumber">Unit #</label>
+                                <input id="updateUnitNumber" type="text" class="unitNumber" value="{{property.unit}}">
+                            </div>
+                            <div class="right-form">
+                                <label for="rentAmt">Rent Amount:</label>
+                                <input id="updateRent" type="text" class="rentAmt" value="{{property.rent}}">
+                                 <label for="address#">Address:</label>
+                                <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
+                            </div>
+                           <button type="submit" class="form-button">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="button" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+            
             </div>
             {{/each}}
         </div>
     </div>
 </div>
-{{/if}}
+   
+
+
 <div class="fab shadow" data-toggle="modal" data-target="#create-tenant">+</div>
 
 <!--MODALS FOR CREATING TENANT-->
-<div class="modal fade" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Create New Tenant</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--form to enter new tenant-->
-            <div class="modal-body">
-                <form action="">
-                    <div class="left-form">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" class="firstName" placeholder="Steve">
-                        <label for="complexName">Complex:</label>
-                        <input type="text" class="complexName" placeholder="Green Hill Zone">
-                        <label for="unitNumber">Unit #</label>
-                        <input type="text" class="unitNumber" placeholder="1234">
+    {{#each property as |property|}}
+        <div class="modal" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Property</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="right-form">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" class="lastName" placeholder="Jobs">
-                        <label for="rentAmt">Rent Amount:</label>
-                        <input type="text" class="rentAmt" placeholder="1000.00">
+                    <!--form to enter new tenant-->
+                    <div class="modal-body">
+                        <form class="form" action="">
+                            <div class="left-form">
+                                <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
+                                <label for="complexName">Complex Name:</label>
+                                <input id="addComplex" type="text" class="complexName" placeholder="Green Hill Zone">
+                                <label for="unitNumber">Unit #</label>
+                                <input id="addUnitNumber" type="text" class="unitNumber" placeholder="1234">
+                            </div>
+                            <div class="right-form">
+                                <label for="rentAmt">Rent Amount:</label>
+                                <input id="addRent" type="text" class="rentAmt" placeholder="1000.00">
+                                 <label for="address#">Address:</label>
+                                <input id="addAddress" type="text" class="address#" placeholder="18633 N 39th way">
+                            </div>
+                            <button type="submit" class="form-button">Submit</button>
+                        </form>
+                    </div>
+                   
+                    <div class="modal-footer">
+                        <button type="button" class="form-button" data-dismiss="modal">Close</button>
+                        
                     </div>
                 </form>
             </div>
@@ -68,12 +124,9 @@
                 <button type="button" class="form-button">Submit</button>
             </div>
         </div>
-    </div>
-</div>
+        {{/each}}
 
-
-<div>
-    <button type="button" class="update-button" id="landlordlogout">Log Out</button>
-</div>
-
+   
+<script src="/javascript/new-property.js"></script>
+<script src="/javascript/edit-property.js"></script>     
 

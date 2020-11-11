@@ -7,10 +7,13 @@ badges();
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Testing](#testing)
 * [License](#license)
 * [Contributors](#contributors)
 * [Images](#Images)
+* [Deployment](#deployment)
 * [Questions](#questions)
+
 
 
 ## Description:
@@ -22,7 +25,11 @@ Clone from Github repository. Install needed npm packages.
 
 
 ## Usage:
+Also be sure to run MySql (mysql -u root -p) and type in “source db/schema.sql;” to connect the database.
 Start from the terminal using npm start command.
+
+## Testing
+To test in the browser you will  go to localhost:3001/signup and follow directions.
 
 
 ## License:
@@ -41,8 +48,9 @@ Tara Brichetto, Joseph DeFelice, Richard Flores, Stephen Pena, Chris Walston
 ![](assets/tenantlogin.PNG)
 ![](assets/tenantdash.PNG)
 
+## Deployment:
 
-## Questions
+## Questions:
 Contact me:
 Github: [https://github.com/penaone](https://github.com/penaone)
 Email: [penaone@gmail.com](penaone@gmail.com)

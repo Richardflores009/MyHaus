@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,30 +10,28 @@
     </head>
     <body>
 
-    Navigation
+    <!--Navigation-->
     <div class="col-2">
         <nav class="nav-container">
-                            <h1 href="#" class="nav-title">MyHaus</h1>
-                            <a href="#" class="nav-link">Dashboard</a>
-                            <a href="#" class="nav-link">Pet Updates</a>
+            <h1 href="#" class="nav-title">MyHaus</h1>
+            <a href="/login" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Pet Updates</a>
         </nav>
-    </div>-->
+    </div>
 
     <!--Requests Display -->
+    <main class="main-container">
+    <h2> Pending Maintenance Requests</h2>
     <div>
-    <h2>Pending Maintenance Requests</h2>
-    <div>
-        <a class="list-item flex-row justify-space-between">
         {{#each posts as |post| }}
             <span>{{post.title}}</span>
             <span>{{post.description}}</span>
             <span>{{post.createdAt}}</span>
         {{/each}}
-        </a>
     </div>
-    </div>
+    </main>
 
-    <!--Log Out
+    <!--Log Out-->
     <div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
         <button type="button" class="update-button" id="landlordlogout">Log Out</button>
     </div>
@@ -43,4 +41,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-</html>-->
+</html>

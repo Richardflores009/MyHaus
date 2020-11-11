@@ -1,50 +1,47 @@
-// LANDLORD CAN EDIT OR DELETE PROPERTY INFO
+// LANDLORD CREATES NEW PROPERTY ON LANDLORD DASHBOARD
+const property_id = document.querySelector('input[name="property-id"]').value
+const deletePropertyId = document.querySelector('button[name="delete"]').value
+const submitPropertyId = document.querySelector('button[name="submit"]').value
 
-async function editPropertyHandler(event) {
+async function newPropertyHandler(event) {
     event.preventDefault();
+    const address = document.querySelector('#updateAddress').value;
+    const complex = document.querySelector('#updateComplex').value;
+    const unit = document.querySelector('#updateUnitNumber').value;
+    const rents = document.querySelector('#updateRent').value;
+    const landlord_id = document.querySelector('input[name="landlord-id"]').value
+    const rent = parseInt(rents)
+    console.dir('lolololol', submitPropertyId)
 
-    // REMINDER: Connect with Handlebars
-    const propertyId = document.querySelector('').value;
-    const complexName = document.querySelector('').value;
-    const unitNumber = document.querySelector('').value;
-    const rentAmount = document.querySelector('').value;
-
-    const response = await fetch(`/api/property/${propertyId}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            propertyId,
-            complexName,
-            unitNumber,
-            rentAmount
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    if (response.ok) {
-        document.location.replace('');
+        const response = await fetch(`/api/property/${submitPropertyId}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                address,
+                complex,
+                unit,
+                rent,
+                landlord_id
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+    
+        if (response.ok) {
+            document.location.replace('/');
         } else {
-        alert(response.statusText);
+            alert(response.statusText);
         }
 }
 
-async function deletePropertyHandler(event) {
-    event.preventDefault();
-
-    // REMINDER: Connect with Handlebars
-    const propertyId = document.querySelector('').value;
-
-    const response = await fetch(`/api/property/${propertyId}`, {
-        method: 'DELETE'
+async function deletePost() {
+    await fetch(`/api/property/${deletePropertyId}`, {
+      method: 'DELETE'
     });
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
-    }
-}
-// Edit Property Button
-document.querySelector('').addEventListener('click', editPropertyHandler);
+  
+    document.location.replace('/');
+  };
 
-// Delete Property Button
-document.querySelector('').addEventListener('click', deletePropertyHandler);
+// Submit Button Handler
+document.querySelector('.form-property').addEventListener('submit', newPropertyHandler);
+document.querySelector('#delete-btn').addEventListener('click', deletePost);

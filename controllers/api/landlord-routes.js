@@ -99,7 +99,7 @@ router.get('/', (req, res) => {
   
   // LANDLORD LOGIN 
   router.post('/login', (req, res) => {
-    console.log('hellooooooo??')
+
     // expects {email, password}
     Landlord.findOne({
       where: {
@@ -118,8 +118,7 @@ router.get('/', (req, res) => {
       return;
     }
 
-      console.log('hellooooooo??')
-      console.log('welcome to landlord')
+    
       req.session.save(() => {
         req.session.landlord_id = dbLandlordData.id;
         req.session.email = dbLandlordData.email;

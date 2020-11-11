@@ -3,30 +3,34 @@
 async function newPropertyHandler(event) {
     event.preventDefault();
 
-    const tenantName = document.querySelector('').value;
-    const complexName = document.querySelector('').value;
-    const unitNumber = document.querySelector('').value;
-    const rentAmount = document.querySelector('').value;
-
-    const response = await fetch(``, {
-        method: 'POST',
-        body: JSON.stringify({
-            address,
-            complexName,
-            unitNumber,
-            rentAmount
-        }),
-        headers: {
-            "Content-Type": "application/json"
+    const address = document.querySelector('#addAddress').value;
+    const complex = document.querySelector('#addComplex').value;
+    const unit = document.querySelector('#addUnitNumber').value;
+    const rents = document.querySelector('#addRent').value;
+    const landlord_id = document.querySelector('input[name="landlord-id"]').value
+    const rent = parseInt(rents)
+   
+        const response = await fetch(`/api/property`, {
+            method: 'POST',
+            body: JSON.stringify({
+                address,
+                complex,
+                unit,
+                rent,
+                landlord_id
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+    
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
         }
-    });
-
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
-    }
+    
 }
 
 // Submit Button Handler
-document.querySelector('').addEventListener('submit', newFormHandler);
+document.querySelector('.form').addEventListener('submit', newPropertyHandler);

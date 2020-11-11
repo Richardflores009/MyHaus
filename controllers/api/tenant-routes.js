@@ -95,8 +95,6 @@ router.get('/:id', (req, res) => {
       return;
     }
       
-      console.log('hellooooooo??')
-      console.log('welcome to landlord')
       req.session.save(() => {
         req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;

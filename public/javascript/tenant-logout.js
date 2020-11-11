@@ -1,13 +1,14 @@
-function logout() {
-  
-    fetch("/api/tenant/logout", {
+async function tenantLogout() {
+  console.log("tenant logout");
+    const response = await fetch("/api/tenant/logout", {
       method: "post",
       headers: { "Content-Type": "application/json" }
-    })
-      .then(function() {
-        document.location.replace("/login");
-      })
-      .catch(err => console.log(err));
+    });
+    if (response.ok) {
+        document.location.replace("/tenant/login");
+        console.log("tenant logout");
+      } else 
+      alert(response.statusText);
   }
   
-  document.querySelector("#logout-link").addEventListener("click", logout);
+  document.querySelector("#tenantlogout").addEventListener("click", tenantLogout);

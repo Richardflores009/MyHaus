@@ -40,13 +40,13 @@ router.get('/:id', (req, res) => {
       email: req.body.email,
       password: req.body.password,
     })
-    .then(dbUserData => {
+    .then(dbTenantData => {
       req.session.save(() => {
-        req.session.tenant_id = dbUserData.id;
-        req.session.email = dbUserData.email;
+        req.session.tenant_id = dbTenantData.id;
+        req.session.email = dbTenantData.email;
         req.session.loggedIn = true;
     
-        res.json(dbUserData);
+        res.json(dbTenantData);
       });
     })
     .catch(err => {
@@ -96,7 +96,7 @@ router.get('/:id', (req, res) => {
     }
       
       console.log('hellooooooo??')
-      console.log('welcome to landlord')
+      console.log('welcome to tenant')
       req.session.save(() => {
         req.session.tenant_id = dbTenantData.id;
         req.session.email = dbTenantData.email;

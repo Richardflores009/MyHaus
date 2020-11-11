@@ -62,13 +62,13 @@ router.get('/', (req, res) => {
       comment_id: req.body.comment_id,
       property_id: req.body.property_id
     })
-    .then(dbUserData => {
+    .then(dbLandlordData => {
       req.session.save(() => {
-        req.session.landlord_id = dbUserData.id;
-        req.session.email = dbUserData.email;
+        req.session.landlord_id = dbLandlordData.id;
+        req.session.email = dbLandlordData.email;
         req.session.loggedIn = true;
     
-        res.json(dbUserData);
+        res.json(dbLandlordData);
       });
     })
     .catch(err => {

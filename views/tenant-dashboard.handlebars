@@ -1,5 +1,5 @@
 <div class="col-10 main-container">
-    <h1 class="dashboard-title">Hello, <br>tenant name!</h1>
+    <h1 class="dashboard-title">Hello, <br> put data!</h1>
     <div class="row justify-content-start">
         <div class="table-wrapper shadow col-5">
             <div class="table-title">Your Information</div>
@@ -53,13 +53,84 @@
                         <li>Appliances</li>
                     </ul>
                 </div>
-                <a href="#" id ="maintenance-begin-request" class="update-button">Begin Request</a>
+                <button type="button" id ="maintenance-begin-request" class="update-button">Begin Request</button>
             </div>
             <div class="col-12 service-wrapper shadow">
                 <div class="table-title">Update Pet Status</div>
                 <p class="table-desc">Please update if you get or lose a pet</p>
-                <a href="#" class="update-button">Update</a>
+                <button type="button" id="pet-begin-request" class="update-button">Update</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<!--modal-->
+<div class="modal fade" id="update-info" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="left-form">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="firstName" placeholder="put in data">
+                    </div>
+                    <div class="right-form">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="lastName" placeholder="Jobs">
+                    </div>
+                    <label for="email">Email:</label>
+                    <input type="text" class="email" placeholder="email">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="form-button">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="update-button" id="tenantlogout">Log Out</button>
+</div>
+
+<!-- Maintenance Request Modal -->
+    <div id="maintenance-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form>
+                <label for="name">Subject/Title:</label>
+                <input type="text" id="title" name="title"><br>
+                <label for="description">Brief Description of Issue:</label>
+                <input type="text" maxlength="100" id="maintenanceDescription" name="maintenanceDescription"><br>
+                <button type="button" class="update-button" id="maintenance-submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Pet Status Modal -->
+    <div id="pet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form>
+                <p>Are you requesting to add or remove a pet?</p>
+                <input type="radio" id="addPet" name="addPet" value="addPet">
+                <label for="addPet">Add Pet</label><br>
+                <input type="radio" id="removePet" name="removePet" value="removePet">
+                <label for="removePet">Remove Pet</label><br>
+                <p>Please indicate the type(s) and quantity of the pet(s) you wish to add or remove.</p>
+                <label for="pet">Example: "Cat(2), Dog(1), Turtle(3)</label>
+                <input type="text" maxlength="100" id="pet" name="pet"><br>
+                <button type="button" class="update-button" id="pet-submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<script src="/javascript/add-post.js"></script>
+<script src="/javascript/tenant-logout.js"></script>

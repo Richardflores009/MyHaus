@@ -1,23 +1,17 @@
-// JAVASCRIPT FOR TENANTS POSTING A MAINTENANCE REQUEST
+// JAVASCRIPT FOR TENANTS POSTING A MAINTENANCE OR PET REQUEST
 
-// Display Maintenance Request Modal
-function displayMaintenanceModal() {
-  console.log("displayMaintenanceModelFunction")
-};
-
-// Input and Submit Maintenance Request
-async function newRequestHandler(event) {
-    event.preventDefault();
+// Submit Maintenance Request
+async function maintenanceSubmit(event) {
+  event.preventDefault();
   
-    // REMINDER: Connect with Tenant Handlebars (Modal or Maintenance Request Form Page)
-    const title = document.querySelector('').value;
-    const postBody = document.querySelector('').value;
+    const title = document.querySelector('input[name="title"]').value;
+    const description = document.querySelector('input[name="maintenanceDescription"]').value;
   
     const response = await fetch(`/api/post`, {
       method: 'POST',
       body: JSON.stringify({
         title,
-        postBody
+        description
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -25,13 +19,24 @@ async function newRequestHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/tenant');
+      document.location.replace('/post');
+      console.log("maintenance request submitted");
+      closeModal();
     } else {
       alert(response.statusText);
+      closeModal();
     }
-  }
-  // Event Listener for Maintenance Begin Request Button
-  //document.querySelector('#maintenance-begin-request').addEventListener('click', displayMaintenanceModal);
 
-  // REMINDER: Add Event Listener for Maintenance Request Submit Button
-  //document.querySelector('#').addEventListener('click', newRequestHandler);
+};
+
+// Submit Pet Request
+function petSubmit() {
+  console.log("pet request submitted");
+  closeModal();
+};
+
+// Event Listener for Maintenance Request Submit Button
+document.querySelector("#maintenance-submit-button").addEventListener("click", maintenanceSubmit);
+
+// Event Listener for Pet Update Submit Button
+document.querySelector("#pet-submit-button").addEventListener("click", petSubmit);

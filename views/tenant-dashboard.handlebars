@@ -105,11 +105,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <form>
-                <label for="name">Requestor Name:</label>
-                <input type="text" id="requestorName"><br>
+                <label for="name">Subject/Title:</label>
+                <input type="text" id="title" name="title"><br>
                 <label for="description">Brief Description of Issue:</label>
-                <input type="text" maxlength="100" id="maintenanceDescription"><br>
-                <button type="button" class="update-button" id="maintenanceSubmitButton">Submit</button>
+                <input type="text" maxlength="100" id="maintenanceDescription" name="maintenanceDescription"><br>
+                <button type="button" class="update-button" id="maintenance-submit-button">Submit</button>
             </form>
         </div>
     </div>
@@ -127,7 +127,7 @@
                 <p>Please indicate the type(s) and quantity of the pet(s) you wish to add or remove.</p>
                 <label for="pet">Example: "Cat(2), Dog(1), Turtle(3)</label>
                 <input type="text" maxlength="100" id="pet" name="pet"><br>
-                <button type="button" class="update-button" id="maintenanceSubmitButton">Submit</button>
+                <button type="button" class="update-button" id="pet-submit-button">Submit</button>
             </form>
         </div>
     </div>

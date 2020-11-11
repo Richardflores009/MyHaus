@@ -3,7 +3,7 @@ const sequelize = require('../config/config');
 const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 
-// get single post
+// 
 router.get('/', (req, res) => {
   console.log("tenantroutepageid",req.session.landlord_id)
   Property.findAll({
@@ -42,6 +42,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// LANDLORD LOGIN PAGE
 router.get("/login", (req, res) => {
     // if (req.session.loggedIn) {
     //   res.redirect("/");
@@ -51,6 +52,7 @@ router.get("/login", (req, res) => {
     res.render("landlord-login");
   });
   
+  // LANDLORD SIGNUP PAGE
   router.get("/signup", (req, res) => {
     // if (req.session.loggedIn) {
     //   res.redirect("/");

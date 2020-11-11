@@ -9,30 +9,31 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
+      'description',
       'created_at'
     ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'body', 'landlord_id', 'tenant_id'],
-        include: {
-          model: Landlord,
-          attributes: ['email']
-        },
-        include: {
-            model: Tenant,
-            attributes: ['email']
-        }
-      },
-      {
-        model: Landlord,
-        attributes: ['email']
-      },
-      {
-        model: Tenant,
-        attributes: ['email']
-      }
-    ]
+    //include: [
+      // {
+      //   model: Comment,
+      //   attributes: ['id', 'description', 'landlord_id', 'tenant_id'],
+      //   include: {
+      //     model: Landlord,
+      //     attributes: ['email']
+      //   },
+      //   include: {
+      //       model: Tenant,
+      //       attributes: ['email']
+      //   }
+      // },
+      // {
+      //   model: Landlord,
+      //   attributes: ['email']
+      // },
+      // {
+      //   model: Tenant,
+      //   attributes: ['email']
+      // }
+    //]
    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -80,6 +81,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
+    description: req.body.description,
     tenant_id: req.body.tenant_id,
     landlord_id: req.body.landlord_id
   })
@@ -94,7 +96,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-    title: req.body.title
+    title: req.body.title,
+    description: req.body.description,
   },
   {
     where: {

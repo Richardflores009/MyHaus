@@ -66,3 +66,39 @@
 </div>
 {{/each}}
 
+<div>
+    <button type="button" class="update-button" id="landlordlogout">Log Out</button>
+</div>
+
+<!-- Maintenance Request Modal -->
+    <div id="maintenance-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form>
+                <label for="name">Subject/Title:</label>
+                <input type="text" id="title" name="title"><br>
+                <label for="description">Brief Description of Issue:</label>
+                <input type="text" maxlength="100" id="maintenanceDescription" name="maintenanceDescription"><br>
+                <button type="button" class="update-button" id="maintenance-submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Pet Status Modal -->
+    <div id="pet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form>
+                <p>Are you requesting to add or remove a pet?</p>
+                <input type="radio" id="addPet" name="addPet" value="addPet">
+                <label for="addPet">Add Pet</label><br>
+                <input type="radio" id="removePet" name="removePet" value="removePet">
+                <label for="removePet">Remove Pet</label><br>
+                <p>Please indicate the type(s) and quantity of the pet(s) you wish to add or remove.</p>
+                <label for="pet">Example: "Cat(2), Dog(1), Turtle(3)</label>
+                <input type="text" maxlength="100" id="pet" name="pet"><br>
+                <button type="button" class="update-button" id="pet-submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+

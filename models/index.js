@@ -12,8 +12,7 @@ Property.belongsTo(Landlord, {
 Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 })
-
-// BACKWARDS?
+ 
 Property.belongsTo(Tenant, {
     foreignKey: 'tenant_id',
     onDelete: 'CASCADE'

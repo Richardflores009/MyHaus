@@ -1,8 +1,46 @@
-<h2>Pending Maintenance Requests</h2>
-<div>
-    {{#each posts as |post| }}
-        <span>{{post.title}}</span>
-        <span>{{post.description}}</span>
-        <span>{{post.createdAt}}</span>
-    {{/each}}
-</div>
+<!--<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MyHaus</title>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+
+    Navigation
+    <div class="col-2">
+        <nav class="nav-container">
+                            <h1 href="#" class="nav-title">MyHaus</h1>
+                            <a href="#" class="nav-link">Dashboard</a>
+                            <a href="#" class="nav-link">Pet Updates</a>
+        </nav>
+    </div>-->
+
+    <!--Requests Display -->
+    <div>
+    <h2>Pending Maintenance Requests</h2>
+    <div>
+        <a class="list-item flex-row justify-space-between">
+        {{#each posts as |post| }}
+            <span>{{post.title}}</span>
+            <span>{{post.description}}</span>
+            <span>{{post.createdAt}}</span>
+        {{/each}}
+        </a>
+    </div>
+    </div>
+
+    <!--Log Out
+    <div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
+        <button type="button" class="update-button" id="landlordlogout">Log Out</button>
+    </div>
+
+    <script src="/javascript/landlord-logout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>-->

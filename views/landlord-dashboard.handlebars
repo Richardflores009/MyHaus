@@ -47,25 +47,24 @@
                     <div class="modal-body">
                         <form class="form-property" action="">
                             <div class="left-form">
-                                <input type="hidden" name="property-id" value="{{property.id}}" />
-                                <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
+                                <input type="hidden" id="propId" value="{{property.id}}" />
                                 <label for="complexName">Complex Name:</label>
-                                <input id="updateComplex" type="text" class="complexName" placeholder="{{property.complex}}">
+                                <input id="updateComplex" type="text" class="complexName" value="{{property.complex}}">
                                 <label for="unitNumber">Unit #</label>
-                                <input id="updateUnitNumber" type="text" class="unitNumber" placeholder="{{property.unit}}">
+                                <input id="updateUnitNumber" type="text" class="unitNumber" value="{{property.unit}}">
                             </div>
                             <div class="right-form">
                                 <label for="rentAmt">Rent Amount:</label>
-                                <input id="updateRent" type="text" class="rentAmt" placeholder="{{property.rent}}">
+                                <input id="updateRent" type="text" class="rentAmt" value="{{property.rent}}">
                                  <label for="address#">Address:</label>
-                                <input id="updateAddress" type="text" class="address#" placeholder="{{property.address}}">
+                                <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
                             </div>
-                            <button type="submit" class="form-button">Submit</button>
-                            <button type="button" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
+                           <button type="submit" class="form-button">Submit</button>
                         </form>
                     </div>
                     <div class="modal-footer">
                         
+                        <button type="button" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
                         
                     </div>
                 </div>
@@ -121,6 +120,8 @@
             </div>
         </div>
         {{/each}}
-        
+
+   
 <script src="/javascript/new-property.js"></script>
-<script src="/javascript/edit-property.js"></script>
+<script src="/javascript/edit-property.js"></script>     
+

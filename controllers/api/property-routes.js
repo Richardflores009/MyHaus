@@ -84,8 +84,9 @@ router.get('/', (req, res) => {
   });
   
   router.put('/:id', (req, res) => {
-    console.log('hahahha', req.params.id)
+    console.log('lololol', affectedRows)
     Property.update(req.body, {
+      
       where: {
         id: req.params.id
         
@@ -93,7 +94,7 @@ router.get('/', (req, res) => {
     })
     .then(affectedRows => {
       if (affectedRows > 0) {
-        console.log('lololol', req.params.id)
+        console.log('lololol', affectedRows)
         res.status(200).end();
       } else {
         res.status(404).end();

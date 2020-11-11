@@ -9,7 +9,7 @@ Property.init({
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
-    address: DataTypes.INTEGER,
+    address: DataTypes.STRING,
     complex: DataTypes.STRING,
     unit: DataTypes.STRING,
     rent: {

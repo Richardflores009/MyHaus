@@ -40,5 +40,5 @@ async function deletePost() {
   };
 
 // Submit Button Handler
-document.querySelector('.form-property').addEventListener('submit', newPropertyHandler);
+document.querySelector('#form-update').addEventListener('submit', newPropertyHandler);
 document.querySelector('#delete-btn').addEventListener('click', deletePost);

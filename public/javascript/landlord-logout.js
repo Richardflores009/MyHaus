@@ -1,12 +1,14 @@
-function logout() {
-  fetch("/api/landlord-routes/logout", {
+async function landlordLogout() {
+  console.log("logout");
+  const response = await fetch("/api/landlord/logout", {
     method: "post",
     headers: { "Content-Type": "application/json" }
-  })
-    .then(function() {
+  });
+  if (response.ok) {
       document.location.replace("/login");
-    })
-    .catch(err => console.log(err));
+      console.log("landlord logout");
+    } else 
+    alert(response.statusText);
 }
 
-document.querySelector("#landlordlogout").addEventListener("click", logout);
+document.querySelector("#landlordlogout").addEventListener("click", landlordLogout);

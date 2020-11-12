@@ -30,9 +30,30 @@ async function maintenanceSubmit(event) {
 };
 
 // Submit Pet Request
-function petSubmit() {
-  console.log("pet request submitted");
-  closeModal();
+async function petSubmit(event) {
+  event.preventDefault();
+  
+    const description = document.querySelector('input[name="pet"]').value;
+  
+    const response = await fetch(`/api/pet`, {
+      method: 'POST',
+      body: JSON.stringify({
+        description
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  
+    if (response.ok) {
+      document.location.replace('/pet');
+      console.log("pet update submitted");
+      closeModal();
+    } else {
+      alert(response.statusText);
+      closeModal();
+    }
+
 };
 
 // Event Listener for Maintenance Request Submit Button

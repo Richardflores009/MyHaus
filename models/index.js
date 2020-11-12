@@ -3,6 +3,7 @@ const Tenant = require('./Tenant');
 const Property = require('./Property');
 const Comment = require('./Comment');
 const Post = require('./Post');
+const Pet = require('./Pet');
 
 Property.belongsTo(Landlord, {
     foreignKey: 'landlord_id',
@@ -68,10 +69,31 @@ Tenant.hasMany(Comment, {
     onDelete: 'CASCADE'
 })
 
+Tenant.hasMany(Pet, {
+    foreignKey: 'tenant_id',
+    onDelete: 'CASCADE'
+})
+
+Landlord.hasMany(Pet, {
+    foreignKey: 'landlord_id',
+    onDelete: 'CASCADE'
+})
+
+Pet.belongsTo(Landlord, {
+    foreignKey: 'landlord_id',
+    onDelete: 'CASCADE'
+})
+
+Pet.belongsTo(Tenant, {
+    foreignKey: 'tenant_id',
+    onDelete: 'CASCADE'
+})
+
 module.exports = {
     Landlord,
     Tenant,
     Property,
     Comment,
-    Post
+    Post,
+    Pet
 };

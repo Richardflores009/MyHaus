@@ -59,7 +59,7 @@
                                  <label for="address#">Address:</label>
                                 <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
                             </div>
-                           <button type="submit" class="form-button">Submit</button>
+                           <button type="submit" onclick="newPropertyHandler()" data-property-id="{{property.id}}" class="form-button">Submit</button>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -69,8 +69,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-            
+        </div>    
             </div>
             {{/each}}
         </div>

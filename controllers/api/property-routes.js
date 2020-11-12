@@ -84,7 +84,7 @@ router.get('/', (req, res) => {
   });
   
   router.put('/:id', (req, res) => {
-    console.log('lololol', affectedRows)
+  
     Property.update(req.body, {
       
       where: {

@@ -31,7 +31,7 @@ async function newRequestHandler(event) {
     }
   }
   // Event Listener for Maintenance Begin Request Button
-  document.querySelector('#maintenance-begin-request').addEventListener('click', displayMaintenanceModal);
+  // document.querySelector('#maintenance-begin-request').addEventListener('click', displayMaintenanceModal);
 
   // REMINDER: Add Event Listener for Maintenance Request Submit Button
   //document.querySelector('#').addEventListener('click', newRequestHandler);

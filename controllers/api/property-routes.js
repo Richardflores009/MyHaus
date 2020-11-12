@@ -94,7 +94,7 @@ router.get('/', (req, res) => {
     })
     .then(affectedRows => {
       if (affectedRows > 0) {
-        console.log('lololol', affectedRows)
+  
         res.status(200).end();
       } else {
         res.status(404).end();
@@ -107,6 +107,7 @@ router.get('/', (req, res) => {
   });
 
   router.put('/edit/:id', (req, res) => {
+    console.log('helo', req.session.id)
     Property.update(req.body, {
       where: {
         id: req.params.id

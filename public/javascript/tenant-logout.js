@@ -11,4 +11,4 @@ async function tenantLogout() {
       alert(response.statusText);
   }
   
-  document.querySelector("#tenantlogout").addEventListener("click", tenantLogout);
+  document.querySelector("#landlordlogout").addEventListener("click", tenantLogout);

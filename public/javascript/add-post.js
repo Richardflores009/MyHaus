@@ -19,7 +19,7 @@ async function maintenanceSubmit(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/post');
+      document.location.replace('/tenant');
       console.log("maintenance request submitted");
       closeModal();
     } else {
@@ -46,7 +46,7 @@ async function petSubmit(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/pet');
+      document.location.replace('/tenant');
       console.log("pet update submitted");
       closeModal();
     } else {

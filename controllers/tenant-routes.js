@@ -4,6 +4,7 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 // get single post
 router.get('/', (req, res) => {
+  console.log(req.session.tenant_id)
   Property.findAll({
     where: {
       // use the ID from the session

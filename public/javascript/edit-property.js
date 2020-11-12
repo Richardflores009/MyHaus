@@ -2,12 +2,11 @@
 
 
 async function newPropertyHandler(event) {
-    // event.preventDefault();
+    event.preventDefault();
 
 
     const property_id = document.querySelector('#propId').value
-    const address = document.querySelector('#updateAddress').value;
-    alert(address)
+    const address = document.querySelector('#updateAddress').value
     const complex = document.querySelector('#updateComplex').value;
     const unit = document.querySelector('#updateUnitNumber').value;
     const rents = document.querySelector('#updateRent').value;
@@ -37,7 +36,6 @@ async function newPropertyHandler(event) {
 
 async function deletePost() {
     const property_id = document.querySelector('#propId').value
-    console.log('haha', property_id)
 
     await fetch(`/api/property/${property_id}`, {
       method: 'DELETE'

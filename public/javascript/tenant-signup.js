@@ -13,14 +13,6 @@ const signupFormHandler = async function (event) {
   const tenantPetyes = document.querySelector("#petYes");
   const tenantPetno = document.querySelector("#petNo");
 
-  //     let tenantPet;
-  //     if (tenantPetyes.checked === true) {
-  //       tenantPet = true
-
-  //      } else if (tenantPetno.checked === true) {
-  // tenantPet = false;
-
-  //      }
   if (tenantPetyes.checked = true, emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
     
       fetch("/api/tenant", {
@@ -57,39 +49,6 @@ const signupFormHandler = async function (event) {
   }
 }
 
-const signupPropertyAssignment = async function(event) {
-  event.preventDefault()
-
-  const idProperty = document.querySelector("#invitation").value;
-  console.log('propertyid',idProperty)
-  const tenant_id = 18
-  if (idProperty.value) {
-    
-      fetch(`/api/property/edit/${idProperty}`, {
-          method: "put",
-          body: JSON.stringify({
-            tenant_id
-          }),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        .then(function () {
-          document.location.replace('/tenant');
-        })
-        .catch(err => console.log(err));
-  }
-
-}
-
-// in the html we need to put this in the onclick tenantpetyes runs tenantpetonlickyes 
-const tenantpetcheckboxyes = () => {
-  tenantPetno.checked = false;
-}
-// in the html we need to put this in the onlick tenantpetno runs tenantpetonclick no
-const tenantpetcheckboxno = () => {
-  tenantPetyes.checked = false;
-}
 
 
 

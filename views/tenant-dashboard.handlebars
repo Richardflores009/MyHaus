@@ -1,10 +1,10 @@
-<div class="col-10 main-container">
+<div class="col-sm-12 col-md-12 col-lg-10 main-container">
     <h1 class="dashboard-title">Hello, <br> put data!</h1>
-    <div class="row justify-content-start">
-        <div class="table-wrapper shadow col-5">
+    <div class="row">
+        <div class="table-wrapper shadow col-md-11 col-lg-6">
             <div class="table-title">Your Information</div>
             <div class="row table-info">
-                <div class="col-6">
+                <div class="col-md-6 col-lg-6">
                     <form action="">
                         <fieldset disabled="disabled">
                             <div class="form-group">
@@ -22,7 +22,7 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-lg-6">
                     <form action="">
                         <fieldset disabled="disabled">
                             <div class="form-group">
@@ -43,27 +43,89 @@
             </div>
             <a href="#" data-toggle="modal" data-target="#update-info" class="update-button">Update Info</a>
         </div>
-        <div class="col-6">
-            <div class="col-12 service-wrapper shadow">
-                <div class="table-title">Request Maintenance</div>
-                <p class="table-desc">Please contact us if you need any maintenance on:</p>
-                <div class="table-info">
-                    <ul>
-                        <li>Physical damages</li>
-                        <li>Appliances</li>
-                    </ul>
+        <!--tablet view-->
+        <div class="table-wrapper-md shadow col-md-10 col-lg-6">
+            <div class="table-title">Your Information</div>
+            <div class="row table-info">
+                <div class="col-md-6 col-lg-6">
+                    <form action="">
+                        <fieldset disabled="disabled">
+                            <div class="form-group">
+                                <label for="disabledTextInput">First Name</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Last Name</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Email</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <a href="#" id ="maintenance-begin-request" class="update-button">Begin Request</a>
+                <div class="col-md-6 col-lg-6">
+                    <form action="">
+                        <fieldset disabled="disabled">
+                            <div class="form-group">
+                                <label for="disabledTextInput">Complex</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Apartment</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Rent</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="put in data">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="col-12 service-wrapper shadow">
+            <a href="#" data-toggle="modal" data-target="#update-info" class="update-button">Update Info</a>
+        </div>
+        
+        <div class="col-md-11 col-lg-5 requests-wrapper">
+            <!--main view-->
+            <div class="col-md-10 col-lg-12 service-wrapper shadow">
+                <div class="table-title">Request Maintenance</div>
+                <p class="table-desc">Please contact us if you need any maintenance</p>
+                <a href="#" id ="maintenance-begin-request" class="update-button request-button">Request Mainenance</a>
+            </div>
+            <div class="col-md-10 col-lg-12 service-wrapper justify-content-center shadow">
                 <div class="table-title">Update Pet Status</div>
-                <p class="table-desc">Please update if you get or lose a pet</p>
-                <a href="#" class="update-button">Update</a>
+                <p class="table-desc">Please update us if you got/given away a pet</p>
+                <a href="#" class="update-button request-button">Update Pet Status</a>
+            </div>
+
+            <!--tablet view-->
+            <div class="col-md-6 col-lg-12 service-wrapper-md shadow">
+                <div class="table-title">Request Maintenance</div>
+                <p class="table-desc">Please contact us if you need any maintenance</p>
+                <a href="#" id ="maintenance-begin-request" class="update-button request-button">Request Mainenance</a>
+            </div>
+            <div class="col-md-5 col-lg-12 service-wrapper-md justify-content-center shadow">
+                <div class="table-title">Update Pet Status</div>
+                <p class="table-desc">Please update us if you got/given away a pet</p>
+                <a href="#" class="update-button request-button">Update Pet Status</a>
+            </div>
+
+            <!--small screen buttons-->
+            <div class="col-sm-12 request-button-sm">
+                 <a href="#" id ="maintenance-begin-request" class="">Request Mainenance</a>
+            </div>
+            <div class="col-sm-12 request-button-sm">
+                <a href="#" class="">Update Pet Status</a>
             </div>
         </div>
     </div>
 </div>
-<div><button id="tenantlogout" type="button" class="form-button">Submit</button></div>
+
+
+
+{{!-- <div><button id="tenantlogout" type="button" class="form-button">Submit</button></div> --}}
 
 <!--modal-->
 <div class="modal fade" id="update-info" tabindex="-1" role="dialog" aria-hidden="true">

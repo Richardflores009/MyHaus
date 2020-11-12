@@ -9,6 +9,7 @@ async function newPropertyHandler(event) {
     const rents = document.querySelector('#addRent').value;
     const landlord_id = document.querySelector('input[name="landlord-id"]').value
     const rent = parseInt(rents)
+    console.dir('lolololol')
    
         const response = await fetch(`/api/property`, {
             method: 'POST',

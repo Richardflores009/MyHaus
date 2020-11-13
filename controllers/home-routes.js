@@ -43,6 +43,31 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/property/:id', (req, res) => {
+  // find one category by its `id` value
+  // be sure to include its associated Products
+  Property.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: Landlord,
+      }
+    ]
+  })
+  .then(dbPostData => {
+    // serialize data before passing to template
+    const property = dbPostData.get({ plain: true })
+  
+    res.render('edit-landlord-property', { property, loggedIn: true });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 // LANDLORD LOGIN PAGE
 router.get("/login", (req, res) => {
     // if (req.session.loggedIn) {

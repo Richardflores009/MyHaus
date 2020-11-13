@@ -26,31 +26,34 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">{{tenant.first_name}} {{tenant.last_name}}</h5>
-                    <div class="row">
+                    <form id="form-update" class="row">
                         <div class="col-3">
                             <ul class="list-wrapper-left">
                                 <li class="list-item">Complex:</li>
                                 <li class="list-item">Unit: </li>
                                 <li class="list-item">Rent: </li>
                                 <li class="list-item">Address: </li>
-                                 <li class="list-item">PropertyId: </li>
                             </ul>
                         </div>
                         <div class="col-9">
                             <ul class="list-wrapper-right">
-                                <li class="list-item">{{property.complex}}</li>
-                                <li class="list-item">{{property.unit}}</li>
-                                <li class="list-item">${{property.rent}}</li>
-                                <li class="list-item">{{property.address}}</li>
-                                <li class="list-item">${{property.id}}</li>
+                                <li id="updateComplex" class="list-item">{{property.complex}}</li>
+                                <li id="updateUnitNumber" class="list-item">{{property.unit}}</li>
+                                <li id="updateRent" class="list-item">${{property.rent}}</li>
+                                <li id="updateAddress" class="list-item">{{property.address}}</li>
                             </ul>
+                            
                         </div>
-                    </div>
+                        <div class="list-item">PropertyId: </div>
+                        <a href="#" class="form-button">{{property.id}}</a>
+                        <a href="/property/{{property.id}}" class="form-button">Edit post</a>
+                        <button type="button"  data-property-id="{{property.id}}" onclick="deletePost(this.getAttribute('data-click-id'), this.getAttribute('data-property-id'));" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
+                    </form>
                 </div>
                
-                <button data-toggle="modal" data-target="#s{{property.id}}">More Info</button>
+                
 
-                 <!--MODALS FOR Updating Property-->
+                 {{!-- <!--MODALS FOR Updating Property-->
 
         <div class="modal" id="s{{property.id}}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -78,7 +81,7 @@
                                  <label for="address#">Address:</label>
                                 <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
                             </div>
-                           <button type="submit" onclick="newPropertyHandler()" data-property-id="{{property.id}}" class="form-button">Submit</button>
+                           <button type="submit" data-id="{{this.}}" onclick="newPropertyHandler()" data-property-id="{{property.id}}" class="form-button">Submit</button>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -88,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>     --}}
             </div>
             {{/each}}
         </div>
@@ -137,10 +140,6 @@
                         
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="form-button" data-dismiss="modal">Close</button>
-                <button type="button" class="form-button">Submit</button>
             </div>
         </div>
         {{/each}}

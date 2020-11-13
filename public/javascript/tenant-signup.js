@@ -10,10 +10,10 @@ const signupFormHandler = async function (event) {
   const tenantPetEl = document.querySelector("#tenantPet");
   const invitationEl = document.querySelector("#invitation");
 
-  const tenantPetyes = document.querySelector("#petYes");
-  const tenantPetno = document.querySelector("#petNo");
+  // const tenantPetyes = document.querySelector("#petYes");
+  // const tenantPetno = document.querySelector("#petNo");
 
-  if (tenantPetyes.checked = true, emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
+  // if (tenantPetyes.checked = true, emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value && invitationEl.value) {
     
       fetch("/api/tenant", {
           method: "post",
@@ -28,13 +28,13 @@ const signupFormHandler = async function (event) {
           }
         })
         .then(async function() {
-          pet = tenantPetno.checked
+          //pet = tenantPetno.checked
           tenant_id = 1
           await fetch(`/api/property/edit/${invitationEl.value}`, {
             method: "put",
             body: JSON.stringify({
               tenant_id,
-              pet
+              //pet
             }),
             headers: {
               "Content-Type": "application/json"
@@ -46,7 +46,7 @@ const signupFormHandler = async function (event) {
         })
         .catch(err => console.log(err));
   
-  }
+  
 }
 
 

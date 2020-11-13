@@ -25,4 +25,4 @@ function closeModal() {
 
 
 // Pet Modal Event Listener
-document.querySelector("#pet-begin-request").addEventListener("click", petBeginRequest);
+//document.querySelector("#pet-begin-request").addEventListener("click", petBeginRequest);

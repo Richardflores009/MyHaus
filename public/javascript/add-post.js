@@ -34,7 +34,7 @@ async function maintenanceSubmit(landlord_id, tenant_id) {
 };
 
 // Submit Pet Request
-async function petSubmit(event) {
+async function petSubmit(landlord_id, tenant_id) {
   event.preventDefault();
   
     const description = document.querySelector('input[name="pet"]').value;
@@ -45,7 +45,9 @@ async function petSubmit(event) {
       method: 'POST',
       body: JSON.stringify({
         status,
-        description
+        description,
+        landlord_id,
+        tenant_id
       }),
       headers: {
         'Content-Type': 'application/json'

@@ -1,0 +1,33 @@
+<style> body {background-image: url('/img/login-background.jpg'); }</style>
+
+<div class="signin-background">
+    <div class="container">
+        <div class="col-12">
+            <form action="" class="tenant-form-wrapper form-wrapper">
+                <div class="form-background">
+                    <h3 class="form-title">Tenant Sign-Up</h3>
+                    <input type="text" id="firstname-input-signup" placeholder="First Name">
+                    <input type="text" id="lastname-input-signup" placeholder="Last Name">
+                    <input type="text" id="email-input-signup" placeholder="Email">
+                    <input type="text" id="password-input-signup" placeholder="Password">
+                    <input type="text" id="invitation" placeholder="Invitation Code">
+                    <p>Do you have any pets?</p>
+                    <div class="radio-wrapper">
+                        <input type="radio" name="formPet" id="petYes" class="form-radio-input">
+                        <label for="petYes">Yes</label>
+                        <input type="radio" name="formPet" id="petNo" class="form-radio-input">
+                        <label for="petNo">No</label>
+                    </div>
+                    <p class="small-text">If you already have an account, please <a href="/tenant/login">log in</a>.</p>
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--sign up-->
+<footer>
+    <p>&copy; Tenant Software</p>
+</footer>
+
+<script src="/javascript/tenant-signup.js"></script>

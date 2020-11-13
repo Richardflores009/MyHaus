@@ -4,7 +4,9 @@ const loginFormHandler = async function(event) {
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
   console.log('hellooooooo??', email)
-  if (email && password) {
+  if (!email && !password) {
+    console.log('Invalid Email/Password.')
+  } else {
     const response = await fetch("/api/tenant/login", {
       method: "post",
       body: JSON.stringify({

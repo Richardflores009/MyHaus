@@ -25,10 +25,8 @@ async function maintenanceSubmit(landlord_id, tenant_id) {
     if (response.ok) {
       document.location.replace('/tenant');
       console.log("maintenance request submitted");
-      closeModal();
     } else {
       alert(response.statusText);
-      closeModal();
     }
 
 };
@@ -57,10 +55,10 @@ async function petSubmit(landlord_id, tenant_id) {
     if (response.ok) {
       document.location.replace('/tenant');
       console.log("pet update submitted");
-      closeModal();
+
     } else {
       alert(response.statusText);
-      closeModal();
+     
     }
 
 };
@@ -71,6 +69,14 @@ async function deletePost(id) {
   });
 
   document.location.replace('/post');
+};
+
+async function deletePet(id) {
+  await fetch(`/api/pet/${id}`, {
+    method: 'DELETE'
+  });
+
+  document.location.replace('/pet');
 };
 
 

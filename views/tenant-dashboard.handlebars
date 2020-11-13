@@ -71,27 +71,8 @@
                 </div>
                 <button  type="button" class="update-button" data-toggle="modal" data-target="#create-tenant">+</button>
                 
-            </div>
-           
-            <div class="col-12 service-wrapper shadow">
-                <div class="table-title">Update Pet Status</div>
-                <p class="table-desc">Please update if you wish to add or remove a pet from your lease.</p>
-                <button type="button" class="update-button" data-toggle="modal" data-target="#pet-update">Update</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{/each}}
-
-<!--Logout Button -->
-<div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
-    <button type="button" class="update-button" id="landlordlogout">Log Out</button>
-</div>
-
-
-    
-<!--Maintenance Request Submit Form -->
-    {{#each property as |property|}}
+                <!--Maintenance Request Submit Form -->
+   
         <div class="modal" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -122,7 +103,25 @@
                 </form>
             </div>
         </div>
-        {{/each}}
+       
+            </div>
+            {{/each}}
+            
+        </div>
+        <div class="col-12 service-wrapper shadow">
+                <div class="table-title">Update Pet Status</div>
+                <p class="table-desc">Please update if you wish to add or remove a pet from your lease.</p>
+                <button type="button" class="update-button" data-toggle="modal" data-target="#pet-update">+</button>
+            </div>
+    </div>
+    
+</div>
+
+
+<!--Logout Button -->
+<div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
+    <button type="button" class="update-button" data-toggle="modal" id="landlordlogout">Log Out</button>
+</div>
 
 <!--Pet Update Submit Form -->
     {{#each property as |property|}}
@@ -145,7 +144,7 @@
                                  <label for="petDescription">Please indicate the pet type and quantity:</label>
                                 <input id="pet" name="pet" type="text" class="address#" placeholder="Dog(2)">
                             </div>
-                            <button type="submit" data-tenant-id="{{tenant.id}}" data-property-id="{{tenant.id}}" onclick="petSubmit(this.getAttribute('data-property-id'), this.getAttribute('data-tenant-id'));" class="form-button">Submit</button>
+                            <button type="submit" data-tenant-id="{{tenant.id}}" data-landlord-id="{{landlord.id}}" onclick="petSubmit(this.getAttribute('data-landlord-id'), this.getAttribute('data-tenant-id'));" class="form-button">Submit</button>
                         </form>
                     </div>
                    
@@ -157,6 +156,10 @@
             </div>
         </div>
         {{/each}}
+    
+
+
+
 
 <!-- Pet Status Modal Original
     <div id="pet-modal" class="modal">

@@ -5,10 +5,11 @@ const { Post, Landlord, Tenant, Comment, Property, Pet } = require('../models');
 // DISPLAY PET REQUESTS
 router.get("/", (req, res) => {
     Pet.findAll({
-        // where: {
-        //     landlord_id = req.session.landlord_id
-        // },
+        where: {
+            landlord_id: req.session.landlord_id
+        },
     attributes: [
+        'id',
         'tenant_id',
         'status',
         'description',

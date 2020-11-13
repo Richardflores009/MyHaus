@@ -107,7 +107,7 @@ router.get('/', (req, res) => {
   });
 
   router.put('/edit/:id', (req, res) => {
-    console.log('helo', req.session.id)
+    req.body.tenant_id = req.session.tenant_id
     Property.update(req.body, {
       where: {
         id: req.params.id

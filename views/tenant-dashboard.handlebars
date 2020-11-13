@@ -92,7 +92,7 @@
                                  <label for="address#">Brief Description of Issue:</label>
                                 <textarea id="addBody" type="text" class="address#" placeholder="Face eating spiders"></textarea>
                             </div>
-                            <button type="submit" class="form-button">Submit</button>
+                            <button type="submit" data-index="{{@index}}" class="form-button">Submit</button>
                         </form>
                     </div>
                    
@@ -135,7 +135,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form" action="">
+                        <form class="form-pet" action="">
                             <div class="">
                                 <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
                                 <input type="hidden" name="tenant-id" value="{{tenant.id}}" />
@@ -144,7 +144,7 @@
                                  <label for="petDescription">Please indicate the pet type and quantity:</label>
                                 <input id="pet" name="pet" type="text" class="address#" placeholder="Dog(2)">
                             </div>
-                            <button type="submit" data-tenant-id="{{tenant.id}}" data-landlord-id="{{landlord.id}}" onclick="petSubmit(this.getAttribute('data-landlord-id'), this.getAttribute('data-tenant-id'));" class="form-button">Submit</button>
+                            <button type="submit" data-index="{{@index}}" class="form-button">Submit</button>
                         </form>
                     </div>
                    

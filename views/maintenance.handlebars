@@ -20,22 +20,71 @@
     </div>
 
     <!--Requests Display -->
-    <main class="main-container">
-    <h2> Pending Maintenance Requests</h2>
-    <div>
-        {{#each posts as |post| }}
-            <span>{{post.title}}</span>
-            <span>{{post.description}}</span>
-            <span>{{post.createdAt}}</span>
+    
+    <!--nav col-->
+    <div class="col-2">
+        <nav class="nav-container">
+             <h1 href="#" class="nav-title">
+            {{!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg> --}}
+            MyHaus
+            </h1>
+            <a href="/" class="nav-link">Dashboard</a>
+            <a href="/post" class="nav-link">Maintenance Requests</a>
+            <a href="/pet" class="nav-link">Pet Updates</a>
+            </nav>
+    </div>
+
+
+
+
+<div class="col-10 main-container">
+    {{#each landlord as |landlord|}}
+    <h1 class="dashboard-title">Hello,<br>{{landlord.first_name}} {{landlord.last_name}}!</h1>
+    {{/each}}
+    <div class="row justify-content-start">
+        {{#each posts as | post |}}
+        <div class="table-wrapper shadow col-5">
+            <div class="table-title">Maintenance Requests #{{@index}}</div>
+            <div class="row table-info">
+                <div class="col-6">
+                    
+                    <form action="">                       
+                        <fieldset disabled="disabled">                         
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text"  class="form-control" placeholder="{{post.title}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Description</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{post.description}}">
+                            </div>
+                        </fieldset>
+                        <button type="button"  data-post-id="{{post.id}}" onclick="deletePost(this.getAttribute('data-post-id'));" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
+                    </form>
+                  
+                </div>
+            
+            </div>
+        </div>
         {{/each}}
     </div>
-    </main>
+</div>
+
+    
+{{!-- {{#if landlord.loggedIn}} --}}
+
+{{!-- {{/if}} --}}
+
 
     <!--Log Out-->
     <div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
         <button type="button" class="update-button" id="landlordlogout">Log Out</button>
     </div>
 
+    <script src="/javascript/add-post.js"></script>
     <script src="/javascript/landlord-logout.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

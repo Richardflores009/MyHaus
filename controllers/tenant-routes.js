@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Landlord,
-        attributes: ['first_name', 'last_name', 'email']
+        attributes: ['id', 'first_name', 'last_name', 'email']
       }
     ]
   })

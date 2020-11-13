@@ -5,13 +5,24 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 // DISPLAY MAINTENANCE REQUESTS
 router.get("/", (req, res) => {
     Post.findAll({
-      //where: {
-      //   landlord_id = req.session.landlord_id
-      //},
+      // where: {
+      //   landlord_id = req.params.landlord_id
+      // },
       attributes: [
+        'id',
         'title',
         'description',
         'created_at'
+      ],
+      include: [
+        {
+          model: Landlord,
+          attributes: ['id', 'first_name', 'last_name', 'email'],
+        },
+        {
+          model: Tenant,
+          attributes: ['first_name', 'last_name', 'email']
+        }
       ]
     })
     .then(dbPostData => {

@@ -22,7 +22,7 @@ function closeModal() {
 
 
 // Maintenance Modal Event Listener
-document.querySelector("#maintenance-begin-request").addEventListener("click", maintenanceBeginRequest);
+
 
 // Pet Modal Event Listener
 document.querySelector("#pet-begin-request").addEventListener("click", petBeginRequest);

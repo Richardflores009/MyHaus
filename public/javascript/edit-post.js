@@ -20,7 +20,7 @@ async function editPost(event) {
     }
   });
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/home');
   } else {
     alert(response.statusText);
   }
@@ -31,7 +31,7 @@ async function deletePost() {
     method: 'DELETE'
   });
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/home');
   } else {
     alert(response.statusText);
   }

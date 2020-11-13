@@ -22,7 +22,7 @@ async function newPropertyHandler(id) {
         });
     
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/home');
         } else {
             alert(response.statusText);
         }
@@ -34,7 +34,7 @@ async function deletePost(click, id) {
       method: 'DELETE'
     });
   
-    document.location.replace('/');
+    document.location.replace('/home');
   };
 
 // Submit Button Handler

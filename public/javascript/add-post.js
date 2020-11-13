@@ -1,12 +1,12 @@
 // JAVASCRIPT FOR TENANTS POSTING A MAINTENANCE OR PET REQUEST
 
 // Submit Maintenance Request
-async function maintenanceSubmit(landlord_id, tenant_id) {
+async function maintenanceSubmit() {
   
     const title = document.querySelector('#addTitle').value;
     const description = document.querySelector('#addBody').value;
-    // const landlord_id = document.querySelector('input[name="landlord-id"]').value;
-    // const tenant_id = document.querySelector('input[name="tenant-id"]').value
+    const landlord_id = document.querySelector('input[name="landlord-id"]').value;
+    const tenant_id = document.querySelector('input[name="tenant-id"]').value
   
   
     const response = await fetch(`/api/post`, {
@@ -82,4 +82,4 @@ async function deletePet(id) {
 
 
 // Event Listener for Pet Update Submit Button
-// document.querySelector("#pet-submit-button").addEventListener("click", petSubmit);
+document.querySelector(".form").addEventListener("submit", maintenanceSubmit);

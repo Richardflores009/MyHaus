@@ -1,29 +1,51 @@
-// TENANT EDITS INFORMATION ON TENANT DASHBOARD
 
-async function editTenantHandler(event) {
-    event.preventDefault();
 
-    const tenantName = document.querySelector('').value;
-    const tenantEmail = document.querySelector('').value;
-    const tenantId = document.querySelector('').value;
+const signupFormHandler = async function (id, tenant_id) {
     
-    const response = await fetch(`/api/tenant/${tenantId}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            tenantName,
-            tenantEmail
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    if (response.ok) {
-        document.location.replace('');
-        } else {
-        alert(response.statusText);
-        }
-};
-
-// REMINDER: Connect with Handlebars
-// Submit Button
-document.querySelector('').addEventListener('submit', editTenantHandler);
+    const first_name = document.querySelector('#updateFirst').value;
+    const last_name = document.querySelector('#updateLast').value;
+    const email = document.querySelector('#updateEmail').value;
+    const complex = document.querySelector('#updateComplex').value;
+    const unit = document.querySelector('#updateUnitNumber').value;
+    const rents = document.querySelector('#updateRent').value;
+    const rent = parseInt(rents)
+    const pet = true
+   
+      
+        fetch(`/api/tenant/${tenant_id}`, {
+            method: "put",
+            body: JSON.stringify({
+              first_name,
+              last_name,
+              email
+            }),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(async function() {
+            tenant_id = 1
+            await fetch(`/api/property/edit/${id}`, {
+              method: "put",
+              body: JSON.stringify({
+                tenant_id,
+                complex,
+                unit,
+                rent,
+                pet
+              }),
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+          })
+          .then(function () {
+            document.location.replace('/tenant');
+          })
+          .catch(err => console.log(err));
+    
+    
+  }
+  
+  
+  

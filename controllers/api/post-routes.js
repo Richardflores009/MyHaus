@@ -98,6 +98,8 @@ router.put('/:id', (req, res) => {
     {
     title: req.body.title,
     description: req.body.description,
+    landlord_id: req.body.landlord_id,
+    tenant_id: req.body.tenant_id
   },
   {
     where: {

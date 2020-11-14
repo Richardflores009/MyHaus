@@ -7,7 +7,7 @@ async function newPropertyHandler(id) {
     const unit = document.querySelector('#updateUnitNumber').value;
     const rents = document.querySelector('#updateRent').value;
     const rent = parseInt(rents)
-
+    
 
         const response = await fetch(`/api/property/${id}`, {
             method: 'PUT',
@@ -36,6 +36,8 @@ async function deletePost(click, id) {
   
     document.location.replace('/home');
   };
+
+ 
 
 // Submit Button Handler
 

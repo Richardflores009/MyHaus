@@ -16,7 +16,7 @@ const loginFormHandler = async function(event) {
       headers: { "Content-Type": "application/json" }
     })
       .then(function() {
-        document.location.replace("/tenant");
+        document.location.replace("/tenant/login");
       })
       .catch(err => console.log(err));
   }

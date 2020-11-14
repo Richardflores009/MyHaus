@@ -4,36 +4,47 @@
     overflow-x: hidden;
 }
 html, body {
-    height: 100%;
+    height: 100vh;
     font-family: 'Quicksand', sans-serif;
 }
+
+
 /*scrollbar styles*/
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: white; 
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+::-webkit-scrollbar-track {
+    background: lightgray; 
+}
+::-webkit-scrollbar-thumb {
     background: #7D9694;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+::-webkit-scrollbar-thumb:hover {
     background: rgb(88, 105, 104);
-  }
+}
+
+
+/*main styles*/
+.main-container {
+    background-image: url('/img/dashboard-bg.png');
+    background-repeat: repeat;
+    height: 100vh;
+    width: 84vw;
+}
+.container-fluid {
+    display: table;
+    width: 100%;
+    margin-top: -50px;
+    padding: 50px 0 0 0; 
+    box-sizing: border-box;
+}
+
 
 /*login/sign up page*/
 .signin-background {
     background-image: url('/img/login-background.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 93vh;
+    height: 93.3vh;
 }
 .form-title {
     text-align: center;
@@ -46,7 +57,7 @@ html, body {
     text-align: center;
     width: 50%;
     margin: 0 auto;
-    padding: 165.5px 10px;
+    padding: 140px 10px;
 }
 .signup-form-wrapper {
     margin: 33px auto;
@@ -103,13 +114,13 @@ footer {
 }
 
 
-/*dashboard page*/
+/*nav styles*/
 .nav-container {
     background-color: #7D9694;
     color: white;
-    position: fixed;
-    height: 100vh;
-    width: 250px;
+    height: 100%;
+    padding: 5px;
+    width: 100vw;
 }
 .nav-container a {
     padding: 15px;
@@ -125,6 +136,7 @@ footer {
     color: black;
 }
 .nav-title {
+    font-size: 50px;
     padding: 15px; 
 }
 .lower-nav a {
@@ -137,20 +149,9 @@ footer {
     color: black;
     transition: 0.3s;
 }
-.main-container {
-    background-image: url('/img/dashboard-bg.png');
-    background-repeat: repeat;
-    height: 60vw;
-    margin-left: 250px;
-}
-.container-fluid {
-    display:table;
-    width: 100%;
-    margin-top: -50px;
-    padding: 50px 0 0 0; /*set left/right padding according to needs*/
-    box-sizing: border-box;
-    background-repeat: red;
-}
+
+
+/*dashboard page*/
 .dashboard-title {
     width: 100%;
     padding: 15px;
@@ -211,12 +212,13 @@ footer {
     right: 50px;
     bottom: 50px;
  }
-  
  .fab:hover {
     box-shadow: 0 6px 14px 0 #666;
     transform: scale(1.05);
     cursor: pointer;
  }
+
+
 /*card styles*/
 .card {
     width: 90%;
@@ -249,6 +251,7 @@ footer {
     border: none;
 }
 
+
 /*tenant dashboard page*/           
 .table-wrapper {
     background: white;
@@ -280,8 +283,11 @@ footer {
 .table-desc {
     padding: 5px 15px;
 }
+.table-desc-sm {
+    display: none;
+}
 .update-button {
-    width: 25%;
+    width: 50%;
     text-align: center;
     float: right;
     color: white;
@@ -305,21 +311,15 @@ footer {
     margin: 15px;
     border-radius: 10px;
 }
-
-
-  /* Modal Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.service-wrapper-md {
+    display: none;
+}
+.table-wrapper-md {
+    display: none;
+}
+.request-button-sm {
+    display: none;
+}
 
 /*media queries*/
 @media screen and (max-width: 1200px) {
@@ -353,6 +353,41 @@ footer {
 }
 
 @media screen and (max-width: 980px) {
+    /*main*/
+    .main-container {
+        height: 79.3vh;
+    }
+    /*nav*/
+    .nav-container {
+        width: 100vw;
+        padding: 20px 0;
+        height: auto;
+        text-align: left;
+        top: 0;
+    }
+    .nav-container a {
+        padding: 15px;
+        font-size: 20px;
+        color: white;
+        display: inline;
+    }
+    .nav-title {
+        text-align: left;
+        font-size: 50px;
+        padding: 5px 15px; 
+        margin: 0;
+    }
+    .nav-link:hover {
+        background: white;
+        transition: 0.3s;
+        color: black;
+    }
+    .lower-nav:hover {
+        background: white;
+        color: black;
+        transition: 0.3s;
+    }
+
     /*login screen*/
     .form-title {
         font-size: 4vw;
@@ -379,9 +414,59 @@ footer {
     }
 
     /*dashboard*/
+    .dashboard-title {
+        font-size: 25px;
+        text-align: left;
+        padding: 5px 20px;
+    }
+    .table-wrapper {
+        margin: 10px 15px 15px 35px;
+    }
+
+    .table-wrapper-md {
+        display: none;
+    }
+    .table-title {
+        font-size: 20px;
+        text-align: center;
+    }
+    .service-wrapper {
+    }
+    .service-wrapper-md {
+        display: none;
+    }
+    .requests-wrapper {
+        margin: 0;
+        display: inline;
+    }
+    .update-button {
+        width: 97%;
+        margin: 5px;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    /*main*/
+    .main-container {
+        width: 100vw;
+    }
+    /*nav*/
+    .nav-container {
+        width: 100vw;
+    }
+    .nav-container a {
+        padding: 5px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: inline;
+    }
+    .nav-title {
+        padding: 0 15px; 
+    }
+    .lower-nav {
+    }
+    
     /*login screen*/
     .form-title {
         font-size: 5vw;
@@ -411,10 +496,80 @@ footer {
         padding: 0;
         width: 10%;
     }
+
     /*dashboard*/
+    .table-wrapper {
+        display: none;
+    }
+    .table-wrapper-md {
+        display: block;
+        background: white;
+        padding: 0;
+        border-radius: 10px;
+        margin: 15px;
+    }
+    .dashboard-title {
+        font-size: 30px;
+        text-align: center;
+    }
+    .table-wrapper {
+        margin: 5px 60px 5px 60px;
+        width: 100vw;
+    }
+    .requests-wrapper {
+        display: inline-flex;
+        margin: 0 25px;
+    }
+    .service-wrapper {
+        display: none;
+    }
+    .service-wrapper-md {
+        display: inline;
+        margin: 15px 10px 5px 10px;
+    }
+    .service-wrapper-md {
+        background: white;
+        padding: 0;
+        margin: 15px;
+        border-radius: 10px;
+    }
+    .table-title {
+        padding: 15px;
+    }
+    .table-list {
+        display: none;
+    }
+    .update-button {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 575px) {
+    /*main*/
+    .main-container {
+        height: auto;
+    }
+    /*nav*/
+    .nav-container {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        height: 100px;
+    }
+    .nav-container a {
+        padding: 5px 10px;
+        text-decoration: none;
+        font-size: 2.5vw;
+        color: white;
+        display: inline;
+    }
+    .nav-title {
+        font-size: 7vw;
+        width: 100vw;
+        text-align: center;
+        padding: 5px 15px; 
+    }
+
     /*login screen*/
     .form-title {
         font-size: 7vw;
@@ -450,5 +605,55 @@ footer {
     }
 
     /*dashboard*/
+    .main-container {
+        width: 105vw;
+    }
+    .table-wrapper {
+        margin: 5px 40px 5px 40px;
+    }
+    .table-info label {
+        font-size: 2vw;
+        padding: 0;
+    }
+    .table-info input {
+        width: 100%;
+    }
+    .table-title {
+        font-size: 3vw;
+        display: none;
+    }
+    .table-desc {
+        display: none;
+    }
+    .update-button {
+        width: 90%;
+        margin: 5px 25px;
+    }
+    .request-button {
+        padding: 10px;
+        margin: 0 20px;
+        width: 100%;
+    }
+    .service-wrapper {
+        margin: 5px 30px;
+        width: 95%;
+        padding: 0;
+        display: none;
+    }
+    .service-wrapper-md {
+        display: none;
+    }
+    .request-button-sm {
+        display: inline-flex;
+        margin: 15px 0;
+    }
+    .request-button-sm a {
+        background: #7D9694;
+        width: 100%;
+        text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+    }
 }
 

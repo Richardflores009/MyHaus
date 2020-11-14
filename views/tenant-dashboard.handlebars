@@ -1,27 +1,13 @@
-{{#if loggedIn}}
-    <!--nav col-->
-    <div class="col-2">
-        <nav class="nav-container">
-             <h1 href="#" class="nav-title">
-            {{!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-            </svg> --}}
-            MyHaus
-            </h1>
-            </nav>
-    </div>
-
-{{#each property as |property|}}
+{{!-- {{#each property as |property|}} --}}
 <div class="col-10 main-container">
-    <h1 class="dashboard-title">Hello, <br>{{tenant.first_name}} {{tenant.last_name}}!</h1>
+    <h1 class="dashboard-title">Hello, <br> {{tenant.first_name}} {{tenant.last_name}}!</h1>
     <div class="row justify-content-start">
         <div class=" table-wrapper shadow col-5">
             <div class="table-title">Your Information</div>
             <div class="row table-info">
                 <div class="col-6">
                     <form action="">
-                        <fieldset >
+                        <fieldset>
                             <div class="form-group">
                                 <label for="disabledTextInput">First Name</label>
                                 <input id="updateFirst" type="text" id="disabledTextInput" class="form-control" value="{{tenant.first_name}}">
@@ -105,14 +91,14 @@
         </div>
        
             </div>
-            {{/each}}
+            {{!-- {{/each}} --}}
             
         </div>
-        <div class="col-12 service-wrapper shadow">
-                <div class="table-title">Update Pet Status</div>
-                <p class="table-desc">Please update if you wish to add or remove a pet from your lease.</p>
-                <button type="button" class="update-button" data-toggle="modal" data-target="#pet-update">+</button>
-            </div>
+        {{!-- <div class="col-12 service-wrapper shadow">
+            <div class="table-title">Update Pet Status</div>
+            <p class="table-desc">Please update if you wish to add or remove a pet from your lease.</p>
+            <button type="button" class="update-button" data-toggle="modal" data-target="#pet-update">+</button>
+        </div> --}}
     </div>
     
 </div>
@@ -161,4 +147,3 @@
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/tenant-logout.js"></script>
 <script src="/javascript/edit-tenant-by-tenant.js"></script>
-{{/if}}

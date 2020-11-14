@@ -38,8 +38,8 @@ async function petSubmit() {
 
   const landlord_id = document.querySelector('input[name="landlord-id"]').value;
   const tenant_id = document.querySelector('input[name="tenant-id"]').value
-    const description = document.querySelector('input[name="pet"]').value;
-    const status = document.querySelector('input[name="status"]').value;
+    const description = document.querySelector('#petDescriptionInfo').value;
+    const status = document.querySelector('#petStatusInfo').value;
     
   
     const response = await fetch(`/api/pet`, {

@@ -159,35 +159,6 @@
 </div> --}}
 
 <!--Pet Update Submit Form -->
-<<<<<<< HEAD
-    {{#each property as |property|}}
-        <div class="modal" id="pet-update" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Submit Pet Update</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form" action="">
-                            <div class="">
-                                <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
-                                <input type="hidden" name="tenant-id" value="{{tenant.id}}" />
-                                <label for="status">Are you adding or removing a pet?</label>
-                                <input id="status" name="status" type="text" class="rentAmt" placeholder="Add/Remove">
-                                 <label for="pet">Please indicate the pet type and quantity:</label>
-                                <input id="pet" name="pet" type="text" class="address#" placeholder="Dog(2)">
-                            </div>
-                            <button type="submit" data-tenant-id="{{tenant.id}}" data-landlord-id="{{landlord.id}}" onclick="petSubmit(this.getAttribute('data-landlord-id'), this.getAttribute('data-tenant-id'));" class="form-button">Submit</button>
-                        </form>
-                    </div>
-                   
-                    <div class="modal-footer">
-                        <button type="button"  class="form-button" data-dismiss="modal">Close</button>
-                        
-=======
 {{#each property as |property|}}
 <div class="modal" id="pet-update" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -207,7 +178,6 @@
                         <input id="petStatusInfo" name="status" type="text" class="rentAmt" placeholder="Add/Remove">
                             <label for="petDescription">Please indicate the pet type and quantity:</label>
                         <input id="petDescriptionInfo" name="pet" type="text" class="address#" placeholder="Dog(2)">
->>>>>>> 59231746db951ada4720e55d9d514ffd1c5b6c9a
                     </div>
                     <button type="submit" data-index="{{@index}}" class="form-button">Submit</button>
                 </form>

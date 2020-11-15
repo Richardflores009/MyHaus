@@ -28,7 +28,7 @@ async function maintenanceSubmit(landlord_id, tenant_id) {
       closeModal();
     } else {
       alert(response.statusText);
-      closeModal();
+      //closeModal();
     }
 
 };
@@ -57,10 +57,10 @@ async function petSubmit(landlord_id, tenant_id) {
     if (response.ok) {
       document.location.replace('/tenant');
       console.log("pet update submitted");
-      closeModal();
+      //closeModal();
     } else {
       alert(response.statusText);
-      closeModal();
+      //closeModal();
     }
 
 };

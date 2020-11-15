@@ -140,9 +140,9 @@
                             <div class="">
                                 <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
                                 <input type="hidden" name="tenant-id" value="{{tenant.id}}" />
-                                <label for="petStatus">Are you adding or removing a pet?</label>
-                                <input id="addRemovePet" name="status" type="text" class="rentAmt" placeholder="Add/Remove">
-                                 <label for="petDescription">Please indicate the pet type and quantity:</label>
+                                <label for="status">Are you adding or removing a pet?</label>
+                                <input id="status" name="status" type="text" class="rentAmt" placeholder="Add/Remove">
+                                 <label for="pet">Please indicate the pet type and quantity:</label>
                                 <input id="pet" name="pet" type="text" class="address#" placeholder="Dog(2)">
                             </div>
                             <button type="submit" data-tenant-id="{{tenant.id}}" data-property-id="{{tenant.id}}" onclick="petSubmit(this.getAttribute('data-property-id'), this.getAttribute('data-tenant-id'));" class="form-button">Submit</button>

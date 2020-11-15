@@ -7,6 +7,8 @@
 * [License](#license)
 * [Contributors](#contributors)
 * [Tests](#tests)
+* [Links](#links)
+* [Screenshots](#screenshots)
 * [Questions](#questions)
 
 ## Description:
@@ -51,12 +53,12 @@ Sample Tenant Login: <br>
 
 Sample Invitation Code for New Tenant: <br>
 
-## Links
+## Links:
 Deployed Application: https://myhaus.herokuapp.com/ <br>
 Github Repository: https://github.com/Richardflores009/MyHaus <br>
 Group Presentation Link: https://docs.google.com/presentation/d/1xQFHIo6Cto5SCeIT4NqHazeNlVLE9taPFQ-gR5MFmlM/edit?usp=sharing <br>
 
-## Interface Screenshots
+## Screenshots:
 
 ![](public/img/Signup.PNG)
 ![](public/img/LLLogin.PNG)
@@ -65,7 +67,7 @@ Group Presentation Link: https://docs.google.com/presentation/d/1xQFHIo6Cto5SCeI
 ![](public/img/tenantlogin.PNG)
 ![](public/img/tenantdash.PNG)
 
-## Questions
+## Questions:
 Contact me:<br>
 Github: [https://github.com/penaone](https://github.com/penaone)<br>
 Email: [penaone@gmail.com](penaone@gmail.com)<br>

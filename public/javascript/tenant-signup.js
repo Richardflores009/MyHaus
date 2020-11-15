@@ -1,4 +1,4 @@
-
+// TENANT SIGNUP
 
 const signupFormHandler = async function (event) {
   event.preventDefault();
@@ -8,9 +8,6 @@ const signupFormHandler = async function (event) {
   const firstNameEl = document.querySelector("#firstname-input-signup");
   const lastNameEl = document.querySelector("#lastname-input-signup");
   const invitationEl = document.querySelector("#invitation");
-
-  // const tenantPetyes = document.querySelector("#petYes");
-  // const tenantPetno = document.querySelector("#petNo");
 
   if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value){
     fetch("/api/tenant", {
@@ -26,13 +23,11 @@ const signupFormHandler = async function (event) {
       }
     })
     .then(async function() {
-      //pet = tenantPetno.checked
       tenant_id = 1
       await fetch(`/api/property/edit/${invitationEl.value}`, {
         method: "put",
         body: JSON.stringify({
           tenant_id,
-          //pet
         }),
         headers: {
           "Content-Type": "application/json"
@@ -43,16 +38,8 @@ const signupFormHandler = async function (event) {
       document.location.replace('/tenant');
     })
     .catch(err => console.log(err));
+  } 
+};
 
-  }
-    
-      
-  
-}
-
-
-
-
-document
-  .querySelector(".form-wrapper")
-  .addEventListener("submit", signupFormHandler);
+// Signup Button
+document.querySelector(".form-wrapper").addEventListener("submit", signupFormHandler);

@@ -1,4 +1,6 @@
+// LANDLORD CAN EDIT PROPERTY INFO
 
+// Edit property info
 async function newPropertyHandler(event) {
     event.preventDefault()
 
@@ -26,8 +28,9 @@ async function newPropertyHandler(event) {
         } else {
             alert(response.statusText);
         }
-}
+};
 
+// Delete property
 async function deletePost(click, id) {
 
     await fetch(`/api/property/${id}`, {
@@ -35,7 +38,7 @@ async function deletePost(click, id) {
     });
   
     document.location.replace('/home');
-  };
+};
 
  
 

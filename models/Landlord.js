@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 class Landlord extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
-      }
-}
+    }
+};
 
 Landlord.init(
     {
@@ -39,7 +39,6 @@ Landlord.init(
             len: [4]
         }
     },
-
 }, 
 {
     hooks: {

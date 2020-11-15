@@ -1,3 +1,5 @@
+// TENANT CREATES MAINTENANCE REQUESTS TO APPEAR ON LANDLORD DASHBOARD
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
@@ -21,10 +23,6 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      // body: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false
-      // },
       tenant_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -46,6 +44,6 @@ Post.init(
       underscored: true,
       modelName: 'post'
     }
-  );
+);
 
-  module.exports = Post;
+module.exports = Post;

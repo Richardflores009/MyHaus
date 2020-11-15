@@ -1,3 +1,5 @@
+// TENANT TO POST PET UPDATES THAT DISPLAY ON LANDLORD DASHBOARD
+
 const router = require('express').Router();
 const sequelize = require('../../config/config');
 const { Pet, Post, Landlord, Tenant, Comment, Property } = require('../../models');

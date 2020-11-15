@@ -1,3 +1,5 @@
+// TENANT CREATES UPDATES TO APPEAR ON LANDLORD DASHBOARD
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 

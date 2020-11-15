@@ -1,8 +1,10 @@
+// PET UPDATES ON LANDLORD DASHBOARD
+
 const router = require('express').Router();
 const sequelize = require('../config/config');
-const { Post, Landlord, Tenant, Comment, Property, Pet } = require('../models');
+const { Pet } = require('../models');
 
-// DISPLAY PET REQUESTS
+// DISPLAY PET UPDATES
 router.get("/", (req, res) => {
     Pet.findAll({
         where: {

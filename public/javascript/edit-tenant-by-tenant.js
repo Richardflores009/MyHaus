@@ -1,4 +1,4 @@
-
+// TENANT CAN UPDATE THEIR INFORMATION ON DASHBOARD
 
 const signupFormHandler = async function (id, tenant_id) {
     
@@ -42,10 +42,8 @@ const signupFormHandler = async function (id, tenant_id) {
           .then(function () {
             document.location.replace('/tenant');
           })
-          .catch(err => console.log(err));
-    
-    
-  }
+          .catch(err => console.log(err)); 
+};
   
   
   

@@ -1,8 +1,11 @@
+// LANDLORD LOGIN
+
 const loginLandlord = async function(event) {
     event.preventDefault();
+
     const email = document.querySelector("#email");
     const password = document.querySelector("#password");
-    console.log('yo',email.value, password.value)
+    
   if (email && password) {
     await fetch("/api/landlord/login", {
       method: "post",
@@ -17,9 +20,7 @@ const loginLandlord = async function(event) {
       })
       .catch(err => console.log(err));
   }
-    
-  };
-  
-  document
-    .querySelector(".form-wrapper")
-    .addEventListener("submit", loginLandlord);
+};
+
+// Login Button
+  document.querySelector(".form-wrapper").addEventListener("submit", loginLandlord);

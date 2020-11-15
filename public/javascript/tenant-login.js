@@ -1,11 +1,14 @@
+// TENANT LOGIN
+
 const loginFormHandler = async function(event) {
   event.preventDefault();
  
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
-  console.log('hellooooooo??', email)
+  
   if (!email && !password) {
     console.log('Invalid Email/Password.')
+
   } else {
     const response = await fetch("/api/tenant/login", {
       method: "post",
@@ -19,10 +22,8 @@ const loginFormHandler = async function(event) {
         document.location.replace("/tenant");
       })
       .catch(err => console.log(err));
-  }
-  
+  } 
 };
 
-document
-  .querySelector(".form-wrapper")
-  .addEventListener("submit", loginFormHandler);
+// Login Button
+document.querySelector(".form-wrapper").addEventListener("submit", loginFormHandler);

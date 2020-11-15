@@ -29,10 +29,10 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
   
-  // CREATE NEW TENANT
-  router.post('/', (req, res) => {
+// CREATE NEW TENANT
+router.post('/', (req, res) => {
     console.log(req.body)
     Tenant.create({
       first_name: req.body.first_name,
@@ -53,10 +53,10 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
   
-  // EDIT TENANT DATA
-  router.put('/:id', (req, res) => {
+// EDIT TENANT DATA
+router.put('/:id', (req, res) => {
     Tenant.update(req.body, {
       where: {
         id: req.params.id
@@ -73,12 +73,11 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
 
-  // TENANT LOGIN
-  router.post('/login', (req, res) => {
+// TENANT LOGIN
+router.post('/login', (req, res) => {
     
-    // expects {email, password}
     Tenant.findOne({
       where: {
         email: req.body.email
@@ -106,8 +105,8 @@ router.get('/:id', (req, res) => {
     
   });
 
-  // TENANT LOGOUT
-  router.post('/logout', (req, res) => {
+// TENANT LOGOUT
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -116,11 +115,11 @@ router.get('/:id', (req, res) => {
     else {
       res.status(404).end();
     }
-  });
+});
  
   
-  // DELETE TENANT
-  router.delete('/:id', (req, res) => {
+// DELETE TENANT
+router.delete('/:id', (req, res) => {
     Tenant.destroy({
       where: {
         id: req.params.id
@@ -137,7 +136,7 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
   
-  module.exports = router;
+module.exports = router;
   

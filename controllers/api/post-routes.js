@@ -1,3 +1,5 @@
+// TENANT TO POST MAINTENANCE REQUESTS THAT DISPLAY ON LANDLORD DASHBOARD
+
 const router = require('express').Router();
 const sequelize = require('../../config/config');
 const { Post, Landlord, Tenant, Comment, Property } = require('../../models');
@@ -12,28 +14,6 @@ router.get('/', (req, res) => {
       'description',
       'created_at'
     ],
-    //include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'description', 'landlord_id', 'tenant_id'],
-      //   include: {
-      //     model: Landlord,
-      //     attributes: ['email']
-      //   },
-      //   include: {
-      //       model: Tenant,
-      //       attributes: ['email']
-      //   }
-      // },
-      // {
-      //   model: Landlord,
-      //   attributes: ['email']
-      // },
-      // {
-      //   model: Tenant,
-      //   attributes: ['email']
-      // }
-    //]
    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -139,7 +119,6 @@ router.delete('/:id', (req, res) => {
     res.status(500).json(err)
   })
 })
-
 
 
 module.exports = router;

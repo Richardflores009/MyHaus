@@ -1,3 +1,5 @@
+// LANDLORD CREATES PROPERTIES ON DASHBOARD
+
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 

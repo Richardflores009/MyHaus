@@ -2,7 +2,6 @@
 
 async function newPropertyHandler(id) {
 
-
     const address = document.querySelector('#addAddress').value;
     const complex = document.querySelector('#addComplex').value;
     const unit = document.querySelector('#addUnitNumber').value;
@@ -26,9 +25,8 @@ async function newPropertyHandler(id) {
             document.location.replace('/home');
         } else {
             alert(response.statusText);
-        }
-    
-}
+        }  
+};
 
 // Submit Button Handler
 document.querySelector('.form').addEventListener('submit', newPropertyHandler);

@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
         maintenance: req.body.maintenance,
         pet: req.body.pet,
         property_id: req.body.property_id,
-        landlord_id: req.body.landlord_id,
+        landlord_id: req.session.landlord_id,
         tenant_id: req.body.tenant_id,
         rent: req.body.rent,
         unit: req.body.unit

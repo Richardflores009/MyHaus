@@ -5,9 +5,9 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 // DISPLAY MAINTENANCE REQUESTS
 router.get("/", (req, res) => {
     Post.findAll({
-      // where: {
-      //   landlord_id = req.params.landlord_id
-      // },
+      where: {
+        landlord_id: req.session.landlord_id
+      },
       attributes: [
         'id',
         'title',
@@ -38,26 +38,6 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-  // DISPLAY SPECIFIC MAINTENANCE REQUEST
-// router.get("/:id", (req, res) => {
-//     Post.findByPk(req.params.id)
-//       .then(dbPostData => {
-//         if (dbPostData) {
-//           const post = dbPostData.get({ plain: true });
-          
-//           res.render("landlord-dashboard", {
-//             layout: "dashboard",
-//             post
-//           });
-//         } else {
-//           res.status(404).end();
-//         }
-//       })
-//       .catch(err => {
-//         res.status(500).json(err);
-//       });
-// });
 
 
   module.exports = router;

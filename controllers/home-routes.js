@@ -4,7 +4,7 @@ const { Post, Landlord, Tenant, Comment, Property } = require('../models');
 
 
 // 
-router.get('/', (req, res) => {
+router.get('/home', (req, res) => {
   console.log('hahaahh', req.session.landlord_id)
   Property.findAll({
     where: {
@@ -69,7 +69,7 @@ router.get('/property/:id', (req, res) => {
 });
 
 // LANDLORD LOGIN PAGE
-router.get("/login", (req, res) => {
+router.get("/", (req, res) => {
     // if (req.session.loggedIn) {
     //   res.redirect("/");
     //   return;

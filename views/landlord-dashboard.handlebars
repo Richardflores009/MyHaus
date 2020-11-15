@@ -103,8 +103,8 @@
 
 <div class="fab shadow" id="plus" data-toggle="modal" data-target="#create-tenant">+</div>
 
-<!--MODALS FOR CREATING TENANT-->
-    {{#each property as |property|}}
+<!--MODALS FOR CREATING Property-->
+    
         <div class="modal" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -114,11 +114,12 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <!--form to enter new tenant-->
+                    <!--form to enter new Property-->
                     <div class="modal-body">
                         <form class="form" action="">
                             <div class="left-form">
-                                <input type="hidden" name="landlord-id" value="{{landlord.id}}" />
+                                
+                                <input type="hidden" name="landlord-id" value="{{land.id}}" />
                                 <label for="complexName">Complex Name:</label>
                                 <input id="addComplex" type="text" class="complexName" placeholder="Green Hill Zone">
                                 <label for="unitNumber">Unit #</label>
@@ -135,13 +136,15 @@
                     </div>
                    
                     <div class="modal-footer">
-                        <button type="button" class="form-button" data-dismiss="modal">Close</button>
+                        {{#each landlord as |landlord|}}
+                        <button type="button" data-property-id="{{id}}" onclick="newPropertyHandler(this.getAttribute('data-property-id'));" class="form-button" data-dismiss="modal">Close</button>
+                        {{/each}}
                         
                     </div>
                 </form>
             </div>
         </div>
-        {{/each}}
+       
 
 
    

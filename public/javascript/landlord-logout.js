@@ -5,7 +5,7 @@ async function landlordLogout() {
     headers: { "Content-Type": "application/json" }
   });
   if (response.ok) {
-      document.location.replace("/login");
+      document.location.replace("/");
       console.log("landlord logout");
     } else 
     alert(response.statusText);

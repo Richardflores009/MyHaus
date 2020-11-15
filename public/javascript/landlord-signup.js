@@ -19,7 +19,7 @@ if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value){
       headers: { "Content-Type": "application/json" }
     })
       .then(function() {
-        document.location.replace("/");
+        document.location.replace("/home");
       })
       .catch(err => console.log(err));
   };

@@ -1,15 +1,13 @@
 // LANDLORD CREATES NEW PROPERTY ON LANDLORD DASHBOARD
 
-async function newPropertyHandler(event) {
-    event.preventDefault();
+async function newPropertyHandler(id) {
+
 
     const address = document.querySelector('#addAddress').value;
     const complex = document.querySelector('#addComplex').value;
     const unit = document.querySelector('#addUnitNumber').value;
     const rents = document.querySelector('#addRent').value;
-    const landlord_id = document.querySelector('input[name="landlord-id"]').value
     const rent = parseInt(rents)
-    console.dir('lolololol')
    
         const response = await fetch(`/api/property`, {
             method: 'POST',
@@ -17,8 +15,7 @@ async function newPropertyHandler(event) {
                 address,
                 complex,
                 unit,
-                rent,
-                landlord_id
+                rent
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +23,7 @@ async function newPropertyHandler(event) {
         });
     
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/home');
         } else {
             alert(response.statusText);
         }

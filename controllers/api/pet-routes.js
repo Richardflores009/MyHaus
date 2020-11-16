@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/config');
-const { Pet, Post, Landlord, Tenant, Comment, Property } = require('../../models');
+const { Pet, Landlord, Tenant, } = require('../../models');
 
 // GET ALL PET UPDATES
 router.get('/', (req, res) => {

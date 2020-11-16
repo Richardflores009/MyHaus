@@ -1,20 +1,20 @@
 const router = require('express').Router();
 const sequelize = require('../config/config');
-const { Post, Landlord, Tenant, Comment, Property } = require('../models');
+const { Landlord, Tenant, Property } = require('../models');
 
-// get single post
+// DISPLAY PROPERTY ON TENANT DASHBOARD
 router.get('/', (req, res) => {
-  console.log(req.session.tenant_id)
+  if (!req.session.tenant_id) {
+    res.redirect('/tenant/login');
+  } else {
   Property.findAll({
     where: {
-      // use the ID from the session
       tenant_id: req.session.tenant_id
     },
     attributes: [
       'id',
       'address',
       'maintenance',
-      'pet',
       'rent',
       'complex',
       'unit'
@@ -40,8 +40,10 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  }
 });
 
+// TENANT LOGIN
 router.get("/login", (req, res) => {
     if (req.session.loggedIn) {
       res.redirect("/");
@@ -49,8 +51,9 @@ router.get("/login", (req, res) => {
     }
   
     res.render("tenant-login");
-  });
-  
+});
+
+// TENANT SIGNUP
   router.get("/signup", (req, res) => {
     if (req.session.loggedIn) {
       res.redirect("/");
@@ -72,4 +75,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-  module.exports = router;
+module.exports = router;

@@ -1,3 +1,5 @@
+// TENANT LOGIN
+
 const loginFormHandler = async function(event) {
   event.preventDefault();
  
@@ -20,9 +22,6 @@ const loginFormHandler = async function(event) {
       })
       .catch(err => console.log(err));
   }
-  
 };
 
-document
-  .querySelector(".form-wrapper")
-  .addEventListener("submit", loginFormHandler);
+document.querySelector(".form-wrapper").addEventListener("submit", loginFormHandler);

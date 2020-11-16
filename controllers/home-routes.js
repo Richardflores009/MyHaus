@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/config');
-const { Post, Landlord, Tenant, Comment, Property } = require('../models');
+const { Landlord, Tenant, Property } = require('../models');
 
 
-// 
+// LANDLORD DATABASE
 router.get('/home', (req, res) => {
-  console.log('hahaahh', req.session.landlord_id)
+  if (!req.session.landlord_id) {
+    res.redirect('/');
+  } else {
   Property.findAll({
     where: {
       // use the ID from the session
@@ -15,7 +17,6 @@ router.get('/home', (req, res) => {
       'id',
       'address',
       'maintenance',
-      'pet',
       'rent',
       'unit',
       'complex'
@@ -41,11 +42,11 @@ router.get('/home', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  }
 });
 
+// DISPLAY PROPERTY ON LANDLORD DASHBOARD
 router.get('/property/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
   Property.findOne({
     where: {
       id: req.params.id
@@ -70,21 +71,11 @@ router.get('/property/:id', (req, res) => {
 
 // LANDLORD LOGIN PAGE
 router.get("/", (req, res) => {
-    // if (req.session.loggedIn) {
-    //   res.redirect("/");
-    //   return;
-    // }
-  
     res.render("landlord-login");
   });
   
   // LANDLORD SIGNUP PAGE
   router.get("/signup", (req, res) => {
-    // if (req.session.loggedIn) {
-    //   res.redirect("/");
-    //   return;
-    // }
-  
     res.render("landlord-signup");
   });
   

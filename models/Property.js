@@ -21,10 +21,6 @@ Property.init({
         defaultValue: false
 
     },
-    pet: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    },
     tenant_id: {
         type: DataTypes.INTEGER,
         references: {

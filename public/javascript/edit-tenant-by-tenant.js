@@ -1,4 +1,4 @@
-
+// TENANT CAN EDIT THEIR INFORMATION ON DASHBOARD
 
 const signupFormHandler = async function (id, tenant_id) {
     
@@ -9,7 +9,6 @@ const signupFormHandler = async function (id, tenant_id) {
     const unit = document.querySelector('#updateUnitNumber').value;
     const rents = document.querySelector('#updateRent').value;
     const rent = parseInt(rents)
-    const pet = true
    
       
         fetch(`/api/tenant/${tenant_id}`, {
@@ -42,10 +41,8 @@ const signupFormHandler = async function (id, tenant_id) {
           .then(function () {
             document.location.replace('/tenant');
           })
-          .catch(err => console.log(err));
-    
-    
-  }
+          .catch(err => console.log(err));   
+};
   
   
   

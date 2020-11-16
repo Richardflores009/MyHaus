@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Landlord, Comment, Tenant, Property } = require('../../models');
+const { Tenant } = require('../../models');
 
 // GET ALL TENANTS
 router.get('/', (req, res) => {
@@ -76,7 +76,7 @@ router.get('/:id', (req, res) => {
   });
 
   // TENANT LOGIN
-  router.post('/login', (req, res) => {
+router.post('/login', (req, res) => {
     
     // expects {email, password}
     Tenant.findOne({
@@ -102,12 +102,11 @@ router.get('/:id', (req, res) => {
     
         res.json({ user: dbTenantData, message: 'You are now logged in!' });
       });
-    })
-    
-  });
+    })   
+});
 
-  // TENANT LOGOUT
-  router.post('/logout', (req, res) => {
+// TENANT LOGOUT
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -116,11 +115,11 @@ router.get('/:id', (req, res) => {
     else {
       res.status(404).end();
     }
-  });
+});
  
   
-  // DELETE TENANT
-  router.delete('/:id', (req, res) => {
+// DELETE TENANT
+router.delete('/:id', (req, res) => {
     Tenant.destroy({
       where: {
         id: req.params.id
@@ -137,7 +136,7 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
   
   module.exports = router;
   

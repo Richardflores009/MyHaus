@@ -106,6 +106,13 @@ html, body {
 .small-text {
     font-size: 15px;
 }
+.login-sm-show {
+    display: none;
+}
+hr {
+    width: 75%;
+    margin: 10px auto;
+}
 footer {
     background: #7D9694;
     padding: 13px 5px 0px 5px;
@@ -139,17 +146,32 @@ footer {
     font-size: 50px;
     padding: 15px; 
 }
-.lower-nav a {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-.lower-nav a:hover {
-    background: white;
-    color: black;
-    transition: 0.3s;
-}
 
+/*landlord dash nav*/
+.nav-container-ll {
+    background-color: #7D9694;
+    color: white;
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+}
+.nav-container-ll a {
+    padding: 15px;
+    text-decoration: none;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    display: block;
+}
+.nav-link:hover {
+    background: white;
+    transition: 0.3s;
+    color: black;
+}
+.nav-title {
+    font-size: 50px;
+    padding: 15px; 
+}
 
 /*dashboard page*/
 .dashboard-title {
@@ -232,10 +254,12 @@ footer {
     float: left;
     list-style: none;
 }
-.list-wrapper-right {
-    float: right;
-    text-align: right;
-    list-style: none;
+.list-one {
+    background: lightgray;
+    font-size: 12px;
+}
+.list-two {
+    font-size: 20px;
 }
 .list-wrapper-left li, .list-wrapper-right li {
     padding: 0;
@@ -249,6 +273,20 @@ footer {
     color: white;
     outline: none;
     border: none;
+    margin: 0;
+}
+.card a:hover {
+    text-decoration: none;
+}
+.card button {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: #7D9694;
+    color: white;
+    outline: none;
+    border: none;
+    margin-top: 5px;
 }
 
 
@@ -348,7 +386,21 @@ footer {
         margin: 0 5px;
         width: 5%;
     }
-    /*dashboard*/
+    /*landlord dashboard*/
+    .nav-container-ll h1 {
+        font-size: 3vw;
+        padding: 5px;
+        margin: 5px;
+    }
+    .nav-container-ll a {
+        padding: 5px;
+        margin: 5px;
+    }
+    .dashboard-title {
+        font-size: 3vw;
+        padding: 5px;
+        margin: 5px;
+    }
 
 }
 
@@ -416,7 +468,7 @@ footer {
     /*dashboard*/
     .dashboard-title {
         font-size: 25px;
-        text-align: left;
+        text-align: center;
         padding: 5px 20px;
     }
     .table-wrapper {
@@ -430,8 +482,6 @@ footer {
         font-size: 20px;
         text-align: center;
     }
-    .service-wrapper {
-    }
     .service-wrapper-md {
         display: none;
     }
@@ -442,6 +492,55 @@ footer {
     .update-button {
         width: 97%;
         margin: 5px;
+    }
+
+    /*landlord dashboard*/
+    .nav-container-ll {
+        text-align: center;
+        padding: 0;
+    }
+    .nav-container-ll h1 {
+        text-align: center;
+        font-size: 3vw;
+        padding: 5px;
+        margin: 5px;
+    }
+    .nav-container-ll a {
+        padding: 5px;
+        margin: 5px;
+        display: inline;
+    }
+    .dashboard-title {
+        font-size: 3vw;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    /*landlord tenant cards*/
+    .card {
+        width: 100%;
+        margin: 25px 0;
+        border-radius: 15px;
+    }
+    .card h5 {
+        text-align: center;
+    }
+    .list-wrapper-left {
+        float: left;
+        list-style: none;
+    }
+    .list-one {
+        background: lightgray;
+        font-size: 12px;
+    }
+    .list-two {
+        font-size: 20px;
+    }
+    .card a {
+        padding: 5px;
+    }
+    .card button {
+        padding: 5px;
     }
 }
 
@@ -463,8 +562,6 @@ footer {
     }
     .nav-title {
         padding: 0 15px; 
-    }
-    .lower-nav {
     }
     
     /*login screen*/
@@ -549,6 +646,7 @@ footer {
     .main-container {
         height: auto;
     }
+
     /*nav*/
     .nav-container {
         padding: 0;
@@ -556,12 +654,18 @@ footer {
         text-align: center;
         height: 100px;
     }
+    .nav-container-ll h1 {
+        font-size: 5vw;
+    }
     .nav-container a {
         padding: 5px 10px;
         text-decoration: none;
         font-size: 2.5vw;
         color: white;
         display: inline;
+    }
+    .nav-container-ll a {
+        font-size: 2.5vw;
     }
     .nav-title {
         font-size: 7vw;
@@ -605,6 +709,10 @@ footer {
     }
 
     /*dashboard*/
+    .dashboard-title {
+        font-size: 3vw;
+        margin: 0;
+    }
     .main-container {
         width: 105vw;
     }
@@ -655,5 +763,141 @@ footer {
         padding: 10px;
         color: white;
     }
+
+    /*card styles*/
+    .card {
+        width: 75%;
+        margin: 5px auto;
+        border-radius: 15px;
+    }
+    .list-one {
+        background: lightgray;
+        font-size: 12px;
+    }
+    .list-two {
+        font-size: 20px;
+    }
+    .list-wrapper-left li, .list-wrapper-right li {
+        padding: 0;
+        margin: 0;
+    }
+    .card a {
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        background: #7D9694;
+        color: white;
+        outline: none;
+        border: none;
+        margin: 0;
+    }
+    .card button {
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        background: #7D9694;
+        color: white;
+        outline: none;
+        border: none;
+        margin-top: 5px;
+    }
 }
 
+@media screen and (max-width: 360px) {
+    /*main styles*/
+    .main-container {
+        height: 100vh;
+    }
+    .fab {
+        width: 40px;
+        height: 40px;
+        background-color: #7D9694;
+        border-radius: 50%;
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+     }
+
+    /*scrollbar*/
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    /*login screen*/
+    .form-title {
+        font-size: 5vw;
+    }
+    .form-wrapper {
+        padding: 145.5px 10px;
+        width: 100%;
+    }
+    .form-wrapper label {
+        text-align: left;
+        margin-left: 32px;
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 3vw;
+    }
+    .form-wrapper input {
+        font-size: 3vw;
+        width: 75%;
+        margin: 0 0 0 31px;
+    }
+    .form-wrapper button {
+        width: 90%;
+        margin: 15px;
+        padding: 10px;
+    }
+    .signup-form-wrapper {
+        margin: 33px auto;
+    }
+    .tenant-form-wrapper {
+        padding: 117px 10px;
+    }
+    .form-background {
+        padding: 1px;
+    }
+    .radio-wrapper label, .radio-wrapper input {
+        margin: 0 5px;
+        width: 7%;
+    }
+    .login-sm-show {
+        display: block;
+        margin: 5px;
+        background: #7D9694;
+        color: white;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .login-sm {
+        display: none;
+    }
+
+    /*dashboard title*/
+    .dashboard-title {
+        font-size: 5vw;
+    }
+
+    /*nav*/
+    .nav-container-ll h1 {
+        font-size: 10vw;
+    }
+    .nav-container-ll a {
+        font-size: 5vw;
+    }
+    .nav-title {
+        font-size: 7vw;
+        width: 100vw;
+        text-align: center;
+        padding: 5px 15px; 
+    }
+    
+    /*modal styles*/
+    .modal-content input {
+        width: 100%;
+    }
+}

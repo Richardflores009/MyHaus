@@ -1,150 +1,96 @@
-
-{{#if loggedIn}}
-    <!--nav col-->
-    <div class="col-2">
-        <nav class="nav-container">
-             <h1 href="#" class="nav-title">
-            {{!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-            </svg> --}}
-            MyHaus
-            </h1>
-            <a href="#" class="nav-link">Dashboard</a>
-            <a href="/post" class="nav-link">Maintenance Requests</a>
-            <a href="/pet" class="nav-link">Pet Updates</a>
-            </nav>
-    </div>
-{{/if}}
-<div class="col-10 main-container">
+<style>
+    .nav-container, .nav-col {
+        display: none;
+    }
+</style>
+<!--nav col-->
+<div class="col-sm-12 col-md-12 col-lg-2">
+    <nav class="nav-container-ll">
+        <h1 class="nav-title">MyHaus</h1>
+        <a href="/home" class="nav-link">Dashboard</a>
+        <a href="/post" class="nav-link">Maintenance Requests</a>
+        <a href="/pet" class="nav-link">Pet Updates</a>
+        <a href="/" id="landlordlogout">Log Out</a>
+    </nav>
+</div>
+<!--main container col-->
+<div class="col-sm-12 col-md-12 col-lg-10 main-container">
     <div class="row justify-content-center">
-        <h1 class="dashboard-title">Welcome!</h1>
-        <div class="col-4">
-            <!--PUT INFO OF TENANT IN THIS CARD-->
-            {{#each property as |property|}}
+        <h1 class="dashboard-title">properties</h1>
+        {{#each property as |property|}}
+        <!--tenant card-->
+        <div class="col-sm-12 col-md-5 col-lg-4">
             <div class="card shadow">
                 <div class="card-body">
+                    <!--tenant first and last name-->
                     <h5 class="card-title">{{tenant.first_name}} {{tenant.last_name}}</h5>
                     <form id="form-update" class="row">
-                        <div class="col-3">
+                        <div class="col-12">
+                            <!--list of info-->
                             <ul class="list-wrapper-left">
-                                <li class="list-item">Complex:</li>
-                                <li class="list-item">Unit: </li>
-                                <li class="list-item">Rent: </li>
-                                <li class="list-item">Address: </li>
+                                <li class="list-item list-one">Complex: </li>
+                                <li id="updateComplex list-two" class="list-item">{{property.complex}}</li>
+                                <li class="list-item list-one">Unit: </li>
+                                <li id="updateUnitNumber" class="list-item list-two">{{property.unit}}</li>
+                                <li class="list-item list-one">Rent: </li>
+                                <li id="updateRent" class="list-item list-two">${{property.rent}}</li>
+                                <li class="list-item list-one">Address: </li>
+                                <li id="updateAddress" class="list-item list-two">{{property.address}}</li>
+                                <li class="list-item list-one">PropertyId: </li>
+                                <li class="list-item list-two">{{property.id}}</li>
                             </ul>
                         </div>
-                        <div class="col-9">
-                            <ul class="list-wrapper-right">
-                                <li id="updateComplex" class="list-item">{{property.complex}}</li>
-                                <li id="updateUnitNumber" class="list-item">{{property.unit}}</li>
-                                <li id="updateRent" class="list-item">${{property.rent}}</li>
-                                <li id="updateAddress" class="list-item">{{property.address}}</li>
-                            </ul>
-                            
-                        </div>
-                        <div class="list-item">PropertyId: </div>
-                        <div href="#" class="form-button">{{property.id}}</div>
                         <a href="/property/{{property.id}}" class="form-button">Edit post</a>
                         <button type="button" data-index-id="{{@index}}" data-property-id="{{property.id}}" onclick="deletePost(this.getAttribute('data-click-id'), this.getAttribute('data-property-id'));" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
-                       
                     </form>
                 </div>
-               
-                
-
-                 {{!-- <!--MODALS FOR Updating Property-->
-
-        <div class="modal" id="s{{property.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create New Property</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <!--form to enter new tenant-->
-                    <div class="modal-body">
-                        <form id="form-update" action="">
-                            <div class="left-form">
-                                <input type="hidden" id="propId" value="{{property.id}}" />
-                                <label for="complexName">Complex Name:</label>
-                                <input id="updateComplex" type="text" class="complexName" value="{{property.complex}}">
-                                <label for="unitNumber">Unit #</label>
-                                <input id="updateUnitNumber" type="text" class="unitNumber" value="{{property.unit}}">
-                            </div>
-                            <div class="right-form">
-                                <label for="rentAmt">Rent Amount:</label>
-                                <input id="updateRent" type="text" class="rentAmt" value="{{property.rent}}">
-                                 <label for="address#">Address:</label>
-                                <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
-                            </div>
-                           <button type="submit" data-id="{{this.}}" onclick="newPropertyHandler()" data-property-id="{{property.id}}" class="form-button">Submit</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        
-                        <button type="button" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
-                        
-                    </div>
-                </div>
             </div>
-        </div>     --}}
-            </div>
-            {{/each}}
         </div>
+        {{/each}}
     </div>
 </div>
-<div>
-    <button type="button" class="update-button" id="landlordlogout">Log Out</button>
-</div>   
 
-
+<!--for plus button to add tenant-->
 <div class="fab shadow" id="plus" data-toggle="modal" data-target="#create-tenant">+</div>
 
 <!--MODALS FOR CREATING Property-->
-    
-        <div class="modal" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create New Property</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+<div class="modal" id="create-tenant" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--form to enter new Property-->
+            <div class="modal-body">
+                <form class="form" action="">
+                    <div class="left-form">
+                        <input type="hidden" name="landlord-id" value="{{land.id}}" />
+                        <label for="complexName">Complex Name:</label>
+                        <input id="addComplex" type="text" class="complexName" placeholder="Green Hill Zone">
+                        <label for="unitNumber">Unit #</label>
+                        <input id="addUnitNumber" type="text" class="unitNumber" placeholder="1234">
                     </div>
-                    <!--form to enter new Property-->
-                    <div class="modal-body">
-                        <form class="form" action="">
-                            <div class="left-form">
-                                
-                                <input type="hidden" name="landlord-id" value="{{land.id}}" />
-                                <label for="complexName">Complex Name:</label>
-                                <input id="addComplex" type="text" class="complexName" placeholder="Green Hill Zone">
-                                <label for="unitNumber">Unit #</label>
-                                <input id="addUnitNumber" type="text" class="unitNumber" placeholder="1234">
-                            </div>
-                            <div class="right-form">
-                                <label for="rentAmt">Rent Amount:</label>
-                                <input id="addRent" type="text" class="rentAmt" placeholder="1000.00">
-                                 <label for="address#">Address:</label>
-                                <input id="addAddress" type="text" class="address#" placeholder="18633 N 39th way">
-                            </div>
-                            <button type="submit" class="form-button">Submit</button>
-                        </form>
+                    <div class="right-form">
+                        <label for="rentAmt">Rent Amount:</label>
+                        <input id="addRent" type="text" class="rentAmt" placeholder="1000.00">
+                        <label for="address#">Address:</label>
+                        <input id="addAddress" type="text" class="address#" placeholder="18633 N 39th way">
                     </div>
-                   
-                    <div class="modal-footer">
-                        {{#each landlord as |landlord|}}
-                        <button type="button" data-property-id="{{id}}" onclick="newPropertyHandler(this.getAttribute('data-property-id'));" class="form-button" data-dismiss="modal">Close</button>
-                        {{/each}}
-                        
-                    </div>
+                    <button type="submit" class="form-button">Submit</button>
                 </form>
             </div>
-        </div>
+            
+            <div class="modal-footer">
+                {{#each landlord as |landlord|}}
+                <button type="button" data-property-id="{{id}}" onclick="newPropertyHandler(this.getAttribute('data-property-id'));" class="form-button" data-dismiss="modal">Close</button>
+                {{/each}}
+            </div>
+        </form>
+    </div>
+</div>
        
 
 

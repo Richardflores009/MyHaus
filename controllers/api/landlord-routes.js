@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Landlord, Comment, Tenant, Property } = require('../../models');
+const { Landlord, Tenant, Property } = require('../../models');
 
 // GET ALL LANDLORDS
 router.get('/', (req, res) => {
@@ -59,7 +59,6 @@ router.get('/', (req, res) => {
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      comment_id: req.body.comment_id,
       property_id: req.body.property_id
     })
     .then(dbLandlordData => {
@@ -118,7 +117,6 @@ router.get('/', (req, res) => {
       return;
     }
 
-    
       req.session.save(() => {
         req.session.landlord_id = dbLandlordData.id;
         req.session.email = dbLandlordData.email;
@@ -127,7 +125,7 @@ router.get('/', (req, res) => {
         res.json({ user: dbLandlordData, message: 'You are now logged in!'});
       });
     });
-  });
+});
 
    // LANDLORD LOGOUT
    router.post('/logout', (req, res) => {
@@ -143,7 +141,6 @@ router.get('/', (req, res) => {
 
   // DELETE LANDLORD
   router.delete('/:id', (req, res) => {
-    // delete a category by its `id` value
     Landlord.destroy({
       where: {
         id: req.params.id

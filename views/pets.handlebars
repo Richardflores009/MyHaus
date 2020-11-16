@@ -16,6 +16,7 @@
             <h1 href="#" class="nav-title">MyHaus</h1>
             <a href="/home" class="nav-link">Dashboard</a>
             <a href="/post" class="nav-link">Maintenance Requests</a>
+            <button type="button" class="nav-link" id="landlordlogout">Log Out</button>
         </nav>
     </div>
 
@@ -53,26 +54,6 @@
     </div>
 </div>
 
-    <!--Original
-    <main class="main-container" style="padding: 20px">
-    <h2> Pet Updates</h2>
-    <div>
-        {{#each pets as |pet| }}
-            <span>{{pet.tenant_id}}</span>
-            <span>Description of Request: {{pet.status}}</span>
-            <span>{{pet.description}}</span> 
-            <br>
-            <span>Request Date: {{pet.created_at}}</span>
-            <br>
-            <button type="button" id="resolvePetRequest">Resolve Request</button>
-        {{/each}}
-    </div>
-    </main>-->
-
-    <!--Log Out-->
-    <div style="width: 100%; position: absolute; right: 10px; bottom: 10px">
-        <button type="button" class="update-button" id="landlordlogout">Log Out</button>
-    </div>
     <script src="/javascript/add-post.js"></script>
     <script src="/javascript/landlord-logout.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

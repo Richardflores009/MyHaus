@@ -9,9 +9,6 @@ const signupFormHandler = async function (event) {
   const lastNameEl = document.querySelector("#lastname-input-signup");
   const invitationEl = document.querySelector("#invitation");
 
-  // const tenantPetyes = document.querySelector("#petYes");
-  // const tenantPetno = document.querySelector("#petNo");
-
   if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value){
     fetch("/api/tenant", {
       method: "post",
@@ -26,13 +23,11 @@ const signupFormHandler = async function (event) {
       }
     })
     .then(async function() {
-      //pet = tenantPetno.checked
       tenant_id = 1
       await fetch(`/api/property/edit/${invitationEl.value}`, {
         method: "put",
         body: JSON.stringify({
           tenant_id,
-          //pet
         }),
         headers: {
           "Content-Type": "application/json"

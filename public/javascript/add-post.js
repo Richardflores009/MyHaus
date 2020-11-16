@@ -6,10 +6,7 @@ async function maintenanceSubmit() {
     const title = document.querySelector('#addTitle').value;
     const description = document.querySelector('#addBody').value;
     const landlord_id = document.querySelector('input[name="landlord-id"]').value;
-    const tenant_id = document.querySelector('input[name="tenant-id"]').value
-
-    
-  
+    const tenant_id = document.querySelector('input[name="tenant-id"]').value;
   
     const response = await fetch(`/api/post`, {
       method: 'POST',
@@ -30,7 +27,6 @@ async function maintenanceSubmit() {
     } else {
       alert(response.statusText);
     }
-
 };
 
 // Submit Pet Request
@@ -38,10 +34,9 @@ async function petSubmit() {
 
   const landlord_id = document.querySelector('input[name="landlord-id"]').value;
   const tenant_id = document.querySelector('input[name="tenant-id"]').value
-    const description = document.querySelector('#petDescriptionInfo').value;
-    const status = document.querySelector('#petStatusInfo').value;
+  const description = document.querySelector('#petDescriptionInfo').value;
+  const status = document.querySelector('#petStatusInfo').value;
     
-  
     const response = await fetch(`/api/pet`, {
       method: 'POST',
       body: JSON.stringify({
@@ -60,10 +55,8 @@ async function petSubmit() {
       console.log("pet update submitted");
 
     } else {
-      alert(response.statusText);
-     
+      alert(response.statusText);    
     }
-
 };
 
 async function deletePost(id) {
@@ -81,8 +74,6 @@ async function deletePet(id) {
 
   document.location.replace('/pet');
 };
-
-
 
 // Event Listener for Pet Update Submit Button
 document.querySelector(".form").addEventListener("submit", maintenanceSubmit);

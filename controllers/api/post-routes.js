@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/config');
-const { Post, Landlord, Tenant, Comment, Property } = require('../../models');
+const { Post, Landlord, Tenant, } = require('../../models');
 
 // GET ALL POSTS (MAINTENANCE REQUESTS)
 router.get('/', (req, res) => {
@@ -12,28 +12,6 @@ router.get('/', (req, res) => {
       'description',
       'created_at'
     ],
-    //include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'description', 'landlord_id', 'tenant_id'],
-      //   include: {
-      //     model: Landlord,
-      //     attributes: ['email']
-      //   },
-      //   include: {
-      //       model: Tenant,
-      //       attributes: ['email']
-      //   }
-      // },
-      // {
-      //   model: Landlord,
-      //   attributes: ['email']
-      // },
-      // {
-      //   model: Tenant,
-      //   attributes: ['email']
-      // }
-    //]
    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

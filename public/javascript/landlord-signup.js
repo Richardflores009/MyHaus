@@ -1,3 +1,5 @@
+// LANDLORD SIGNUP
+
 const signupFormHandler = async function(event) {
     event.preventDefault();
   
@@ -23,8 +25,7 @@ if (emailEl.value && passwordEl.value && firstNameEl.value && lastNameEl.value){
       })
       .catch(err => console.log(err));
   };
-}
-  
-  document
-    .querySelector(".form-wrapper")
-    .addEventListener("submit", signupFormHandler);
+};
+
+// EVENT LISTENER
+document.querySelector(".form-wrapper").addEventListener("submit", signupFormHandler);

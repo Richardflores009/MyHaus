@@ -1,3 +1,5 @@
+// LANDLORD LOGOUT
+
 async function landlordLogout() {
   console.log("logout");
   const response = await fetch("/api/landlord/logout", {
@@ -11,5 +13,5 @@ async function landlordLogout() {
     alert(response.statusText);
 }
 
-
+// Event Listener
 document.querySelector("#landlordlogout").addEventListener("click", landlordLogout);

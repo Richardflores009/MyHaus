@@ -1,3 +1,4 @@
+// LANDLORD CAN EDIT A PROPERTY ON DASHBOARD
 
 async function newPropertyHandler(event) {
     event.preventDefault()
@@ -8,7 +9,6 @@ async function newPropertyHandler(event) {
     const rents = document.querySelector('#updateRent').value;
     const rent = parseInt(rents)
     
-
         const response = await fetch(`/api/property/${idPost}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -26,7 +26,7 @@ async function newPropertyHandler(event) {
         } else {
             alert(response.statusText);
         }
-}
+};
 
 async function deletePost(click, id) {
 
@@ -35,9 +35,8 @@ async function deletePost(click, id) {
     });
   
     document.location.replace('/home');
-  };
+};
 
- 
 
 // Submit Button Handler
 document.querySelector('.form-update').addEventListener('submit', newPropertyHandler);

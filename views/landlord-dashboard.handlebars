@@ -4,15 +4,12 @@
     <div class="col-2">
         <nav class="nav-container">
              <h1 href="#" class="nav-title">
-            {{!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-            </svg> --}}
             MyHaus
             </h1>
             <a href="#" class="nav-link">Dashboard</a>
             <a href="/post" class="nav-link">Maintenance Requests</a>
             <a href="/pet" class="nav-link">Pet Updates</a>
+            <button type="button" class="nav-link" id="landlordlogout">Log Out</button>
             </nav>
     </div>
 {{/if}}
@@ -50,56 +47,12 @@
                        
                     </form>
                 </div>
-               
-                
-
-                 {{!-- <!--MODALS FOR Updating Property-->
-
-        <div class="modal" id="s{{property.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create New Property</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <!--form to enter new tenant-->
-                    <div class="modal-body">
-                        <form id="form-update" action="">
-                            <div class="left-form">
-                                <input type="hidden" id="propId" value="{{property.id}}" />
-                                <label for="complexName">Complex Name:</label>
-                                <input id="updateComplex" type="text" class="complexName" value="{{property.complex}}">
-                                <label for="unitNumber">Unit #</label>
-                                <input id="updateUnitNumber" type="text" class="unitNumber" value="{{property.unit}}">
-                            </div>
-                            <div class="right-form">
-                                <label for="rentAmt">Rent Amount:</label>
-                                <input id="updateRent" type="text" class="rentAmt" value="{{property.rent}}">
-                                 <label for="address#">Address:</label>
-                                <input id="updateAddress" type="text" class="address#" value="{{property.address}}">
-                            </div>
-                           <button type="submit" data-id="{{this.}}" onclick="newPropertyHandler()" data-property-id="{{property.id}}" class="form-button">Submit</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        
-                        <button type="button" id="delete-btn" class="form-button" data-dismiss="modal">Delete</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>     --}}
             </div>
             {{/each}}
         </div>
     </div>
 </div>
-<div>
-    <button type="button" class="update-button" id="landlordlogout">Log Out</button>
-</div>   
+ 
 
 
 <div class="fab shadow" id="plus" data-toggle="modal" data-target="#create-tenant">+</div>

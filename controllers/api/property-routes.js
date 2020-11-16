@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Landlord, Comment, Tenant, Property } = require('../../models');
+const { Landlord, Tenant, Property } = require('../../models');
 
+// GET ALL PROPERTIES
 router.get('/', (req, res) => {
     Property.findAll({
       attributes: 
       [
         'id',
-        'pet',
         'maintenance',
         'address',
         'complex',
@@ -26,13 +26,10 @@ router.get('/', (req, res) => {
     })
     .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => res.status(404).json(err))
-    // find all categories
-    // be sure to include its associated Products
 });
-  
+
+// GET SPECIFIC PROPERTY
   router.get('/:id', (req, res) => {
-    // find one category by its `id` value
-    // be sure to include its associated Products
     Property.findOne({
       where: {
         id: req.params.id
@@ -56,14 +53,13 @@ router.get('/', (req, res) => {
       res.status(500).json(err)
     })
   });
-  
+
+  // CREATE NEW PROPERTY
   router.post('/', (req, res) => {
-    // create a new landlord
     Property.create({
         address: req.body.address,
         complex: req.body.complex,
         maintenance: req.body.maintenance,
-        pet: req.body.pet,
         property_id: req.body.property_id,
         landlord_id: req.session.landlord_id,
         tenant_id: req.body.tenant_id,
@@ -82,8 +78,9 @@ router.get('/', (req, res) => {
       res.status(500).json(err)
     })
   });
-  
-  router.put('/:id', (req, res) => {
+
+// EDIT PROPERTY (LANDLORD)
+router.put('/:id', (req, res) => {
   
     Property.update(req.body, {
       
@@ -104,9 +101,10 @@ router.get('/', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
 
-  router.put('/edit/:id', (req, res) => {
+// EDIT PROPERTY (TENANT)
+router.put('/edit/:id', (req, res) => {
     req.body.tenant_id = req.session.tenant_id
     Property.update(req.body, {
       where: {
@@ -124,10 +122,10 @@ router.get('/', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
-  
-  router.delete('/:id', (req, res) => {
-    // delete a category by its `id` value
+});
+
+// DELETE PROPERTY
+router.delete('/:id', (req, res) => {
     Property.destroy({
       where: {
         id: req.params.id
@@ -144,7 +142,7 @@ router.get('/', (req, res) => {
       console.log(err)
       res.status(500).json(err)
     })
-  });
+});
   
   module.exports = router;
   

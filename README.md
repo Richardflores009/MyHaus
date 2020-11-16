@@ -62,7 +62,8 @@ Tara Brichetto, Joseph DeFelice, Richard Flores, Stephen Pena, Chris Walston
 12. Confirm the maintenance and pet requests you created in the tenant dashboard are displaying under "Maintenance Requests" and "Pet Updates" in the sidebar.
 
 ## Links:
-Deployed Application: https://myhaus.herokuapp.com/ <br>
+Deployed Application: https://my-haus.herokuapp.com/
+Deployed Application (Backup): https://myhaus.herokuapp.com/ <br>
 Github Repository: https://github.com/Richardflores009/MyHaus <br>
 Group Presentation Link: https://docs.google.com/presentation/d/1xQFHIo6Cto5SCeIT4NqHazeNlVLE9taPFQ-gR5MFmlM/edit?usp=sharing <br>
 
